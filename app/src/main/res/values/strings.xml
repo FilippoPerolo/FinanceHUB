@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Meet Finance</string>
+    <string name="name_of_the_company">Name of the company</string>
+    <string name="search">Search</string>
+    <string name="Companies_List">Companies List</string>
+    <string name="todo" />
+    <string name="description" />
+    <string name="example_application" />
+    <string name="search2">Companies List</string>
+</resources>
