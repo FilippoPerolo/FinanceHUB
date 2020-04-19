@@ -1,10 +1,13 @@
 package com.example.meetfinance;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,7 +27,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final String BASE_URL = "https://financialmodelingprep.com/";
     private RecyclerView recyclerView;
     private ListAdapter mAdapter;
@@ -43,7 +46,8 @@ public class SecondActivity extends AppCompatActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
 
-        //ToggleButton toggleButton = new ToggleButton(this, mDrawerLayout, R.string.open, R.string.close)
+        navigationView.setNavigationItemSelectedListener(this);
+
 
         sharedPreferences = getSharedPreferences("Esiea_3A", Context.MODE_PRIVATE);
         gson = new GsonBuilder()
@@ -128,6 +132,34 @@ public class SecondActivity extends AppCompatActivity {
 
     private void showError() {
         Toast.makeText(this, "Api Error", Toast.LENGTH_SHORT).show();
+    }
+
+    // gestion des clicks sur les items dans la navigationView
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        if (item.isChecked()) { // on vérifie si l'item sur lequel on clique est coché
+            item.setChecked(false);
+        } else {
+            item.setChecked(true);
+        }
+        mDrawerLayout.closeDrawers();
+
+        switch (item.getItemId()) {
+            case R.id.home:
+                Intent intent1 = new Intent(getApplicationContext(), FirstActivity.class);
+                startActivity(intent1);
+                finish();
+                return true;
+            case R.id.back:
+                Intent intent2 = new Intent(getApplicationContext(), SecondActivity.class);
+                startActivity(intent2);
+                finish();
+                return true;
+            case R.id.quit:
+                Toast.makeText(getApplicationContext(), "Quitter...", Toast.LENGTH_SHORT).show();
+                return true;
+        }
+        return true;
     }
 }
 
