@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/firstGroup"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:checked="false"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/back"
+            android:checked="false"
+            android:title="@string/back" />
+        <item
+            android:id="@+id/other"
+            android:checked="false"
+            android:title="@string/other" />
+    </group>
+
+    <group
+        android:id="@+id/secondGroup"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/help"
+            android:checked="false"
+            android:title="@string/help" />
+        <item
+            android:id="@+id/quit"
+            android:checked="false"
+            android:title="@string/quit" />
+    </group>
+
+
+</menu>

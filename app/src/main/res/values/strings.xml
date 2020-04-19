@@ -8,4 +8,11 @@
     <string name="example_application" />
     <string name="search2">Companies List</string>
     <string name="Menu">Menu</string>
+    <string name="home">Home</string>
+    <string name="quit">Quit</string>
+    <string name="other">Other</string>
+    <string name="help">Help</string>
+    <string name="back">Back</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
 </resources>

@@ -43,6 +43,8 @@ public class SecondActivity extends AppCompatActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
 
+        //ToggleButton toggleButton = new ToggleButton(this, mDrawerLayout, R.string.open, R.string.close)
+
         sharedPreferences = getSharedPreferences("Esiea_3A", Context.MODE_PRIVATE);
         gson = new GsonBuilder()
                 .setLenient()

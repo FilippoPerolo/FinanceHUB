@@ -45,6 +45,7 @@
         android:layout_width="280dp"
         android:layout_height="match_parent"
         app:headerLayout="@layout/header_drawer"
+        app:menu="@menu/menu_drawer"
         android:layout_gravity="start">
 
     </com.google.android.material.navigation.NavigationView>
