@@ -7,4 +7,5 @@
     <string name="description" />
     <string name="example_application" />
     <string name="search2">Companies List</string>
+    <string name="Menu">Menu</string>
 </resources>

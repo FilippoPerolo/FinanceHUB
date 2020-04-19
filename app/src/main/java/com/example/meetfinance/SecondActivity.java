@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -29,11 +31,17 @@ public class SecondActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private SharedPreferences sharedPreferences;
     private Gson gson;
+    private DrawerLayout mDrawerLayout;
+    private NavigationView navigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
 
         sharedPreferences = getSharedPreferences("Esiea_3A", Context.MODE_PRIVATE);
         gson = new GsonBuilder()
