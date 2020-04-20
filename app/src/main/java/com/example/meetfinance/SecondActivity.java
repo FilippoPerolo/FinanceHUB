@@ -13,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.RequestQueue;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -36,12 +37,16 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
     private Gson gson;
     private DrawerLayout mDrawerLayout;
     private NavigationView navigationView;
+    private RequestQueue queue;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
+        queue = MySingleton.getInstance(this).getRequestQueue();
+
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
@@ -75,6 +80,8 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
     }
 
 
+
+
     private void showList(List<Symbol> symbolsList) {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -87,6 +94,8 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
         mAdapter = new ListAdapter(symbolsList);
         recyclerView.setAdapter(mAdapter);
     }
+
+
 
     private void makeApiCall() {
         Retrofit retrofit = new Retrofit.Builder()
@@ -118,6 +127,9 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
 
     }
 
+
+
+
     private void saveList(List<Symbol> symbolsList) {
         String jsonString = gson.toJson(symbolsList);
 
@@ -133,6 +145,11 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
     private void showError() {
         Toast.makeText(this, "Api Error", Toast.LENGTH_SHORT).show();
     }
+
+
+
+
+
 
     // gestion des clicks sur les items dans la navigationView
     @Override

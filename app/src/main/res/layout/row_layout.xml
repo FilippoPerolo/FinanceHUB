@@ -1,41 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="6dip">
+    android:layout_height="90dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:contentPadding="5dp">
 
-    <ImageView
-        android:id="@+id/icon"
+    <RelativeLayout
+        android:id="@+id/main_content"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="6dip"
-        android:contentDescription="@string/todo"
-        android:src="@mipmap/ic_launcher" />
+        android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/secondLine"
-        android:layout_width="fill_parent"
-        android:layout_height="26dip"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@id/icon"
-        android:ellipsize="marquee"
-        android:text="@string/description"
-        android:textSize="12sp" />
+        <View
+            android:id="@+id/iconView"
+            android:layout_width="5dp"
+            android:layout_height="70dp"
+            android:background="@color/background" />
 
-    <TextView
-        android:id="@+id/firstLine"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignWithParentIfMissing="true"
-        android:layout_above="@id/secondLine"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@id/icon"
-        android:gravity="center_vertical"
-        android:text="@string/example_application"
-        android:textSize="16sp" />
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="6dip"
+            android:contentDescription="@string/todo"
+            android:src="@mipmap/ic_launcher" />
 
-</RelativeLayout>
+
+        <TextView
+            android:id="@+id/secondLine"
+            android:layout_width="fill_parent"
+            android:layout_height="26dip"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/icon"
+            android:ellipsize="marquee"
+            android:text="@string/description"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/firstLine"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_above="@id/secondLine"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/icon"
+            android:gravity="center_vertical"
+            android:text="@string/example_application"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

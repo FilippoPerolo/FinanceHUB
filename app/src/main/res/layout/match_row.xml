@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:contentPadding="5dp">
+
+    <RelativeLayout
+        android:id="@+id/main_content"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:gravity="center_vertical">
+
+        <View
+            android:id="@+id/iconView"
+            android:layout_width="5dp"
+            android:layout_height="70dp"
+            android:background="@color/background" />
+
+        <ImageView
+            android:id="@+id/imageViewSymbol"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_toRightOf="@+id/iconView"
+            android:src="@drawable/image_icon" />
+
+        <TextView
+            android:id="@+id/Title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@id/imageViewSymbol"
+            android:text="Company_Name" />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

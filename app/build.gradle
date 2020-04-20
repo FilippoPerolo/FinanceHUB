@@ -47,6 +47,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.6.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
 
+    // cardView
+    implementation 'androidx.cardview:cardview:1.0.0'
+
     // firebase
     implementation 'com.google.firebase:firebase-messaging:20.1.5'
 }
