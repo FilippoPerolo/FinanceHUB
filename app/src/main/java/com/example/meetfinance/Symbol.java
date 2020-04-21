@@ -1,6 +1,8 @@
 package com.example.meetfinance;
 
-public class Symbol {
+import java.io.Serializable;
+
+public class Symbol implements Serializable {
     private String symbol;
     private String name;
     private float price;
