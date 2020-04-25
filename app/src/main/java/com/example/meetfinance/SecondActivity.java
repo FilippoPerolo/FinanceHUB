@@ -80,8 +80,6 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
     }
 
 
-
-
     private void showList(List<Symbol> symbolsList) {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -91,10 +89,14 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
         recyclerView.setLayoutManager(layoutManager);
 
         // define an adapter
-        mAdapter = new ListAdapter(symbolsList);
+        mAdapter = new ListAdapter(symbolsList, new ListAdapter.OnItemClickListener() {
+            public void onItemClick(Symbol symbolsList) {
+                Intent intent = new Intent(getApplicationContext(), ThirdActivity.class);
+                startActivity(intent);
+            }
+        });
         recyclerView.setAdapter(mAdapter);
     }
-
 
 
     private void makeApiCall() {
@@ -128,8 +130,6 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
     }
 
 
-
-
     private void saveList(List<Symbol> symbolsList) {
         String jsonString = gson.toJson(symbolsList);
 
@@ -145,10 +145,6 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
     private void showError() {
         Toast.makeText(this, "Api Error", Toast.LENGTH_SHORT).show();
     }
-
-
-
-
 
 
     // gestion des clicks sur les items dans la navigationView
