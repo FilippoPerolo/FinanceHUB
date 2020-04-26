@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.RequestQueue;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -93,6 +95,10 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
             public void onItemClick(Symbol symbolsList) {
                 Intent intent = new Intent(getApplicationContext(), ThirdActivity.class);
                 intent.putExtra("extra",symbolsList.getSymbol());
+                YoYo.with(Techniques.RubberBand)
+                        .duration(2000)
+                        .repeat(1)
+                        .playOn(mDrawerLayout);
                 startActivity(intent);
             }
         });

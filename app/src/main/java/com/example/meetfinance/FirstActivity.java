@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 
 public class FirstActivity extends AppCompatActivity {
 
@@ -95,8 +97,12 @@ public class FirstActivity extends AppCompatActivity {
 
         listButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 listBar.setVisibility(View.VISIBLE);
+                YoYo.with(Techniques.Tada)
+                        .duration(1000)
+                        .repeat(1)
+                        .playOn(listButton);
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -107,6 +113,7 @@ public class FirstActivity extends AppCompatActivity {
                         // on crée un Bundle pour ajouter des informations qu'on va passer dans l'autre activité
                         //Bundle extras = new Bundle();
                         //intent.putExtras(extras);
+
                         startActivity(intent);
                     }
                 }, 2000);

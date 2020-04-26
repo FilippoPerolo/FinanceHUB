@@ -52,5 +52,11 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
 
     // firebase
-    implementation 'com.google.firebase:firebase-messaging:20.1.5'
+    implementation 'com.google.firebase:firebase-messaging:20.1.6'
+
+    // animations
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
+
+
 }
