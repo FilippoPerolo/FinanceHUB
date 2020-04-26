@@ -80,7 +80,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
             }
         });
-        //setAnimation(holder.itemView);
+//        setAnimation(holder.itemView);
 
     }
 

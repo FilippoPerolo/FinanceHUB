@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "61797674161",
+    "firebase_url": "https://meet-finance2.firebaseio.com",
+    "project_id": "meet-finance2",
+    "storage_bucket": "meet-finance2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61797674161:android:001f45c6ec464ee3780690",
+        "android_client_info": {
+          "package_name": "com.example.meetfinance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "61797674161-pa2boot13beropooef5bgg38mqnrn9ac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVer6Qnqq6bXT6NTOkzMkHVT51hffYFQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "61797674161-pa2boot13beropooef5bgg38mqnrn9ac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

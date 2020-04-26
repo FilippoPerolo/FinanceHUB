@@ -1,10 +1,12 @@
 package com.example.meetfinance;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -17,8 +19,12 @@ import com.google.gson.GsonBuilder;
 
 public class ThirdActivity extends AppCompatActivity {
 
+    private static final String TAG = "Note";
     private RelativeLayout infoCompany;
     private TableLayout details;
+    private TextView companyText;
+    private TextView priceText;
+    private TextView exchangeText;
 
     private static final String BASE_URL = "https://financialmodelingprep.com/";
     private RecyclerView recyclerView;
@@ -35,9 +41,18 @@ public class ThirdActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
-        /*Intent intent = getIntent();
-        Symbol currentSymbol = (Symbol) intent.getSerializableExtra("ONE_COMPANY");
-        initialize();*/
+        Intent intent = getIntent();
+        Symbol symbolsList = (Symbol) intent.getSerializableExtra("ONE_COMPANY");
+
+        Symbol extraSent = getIntent().getParcelableExtra("extra");
+
+
+        initialize();
+
+    /*    assert symbolsList != null;
+        companyText.setText(String.valueOf(symbolsList.getName()));
+        priceText.setText(symbolsList.getSymbol()); */
+
         sharedPreferences = getSharedPreferences("Esiea_3A", Context.MODE_PRIVATE);
         gson = new GsonBuilder()
                 .setLenient()
@@ -127,11 +142,13 @@ public class ThirdActivity extends AppCompatActivity {
     private void showError() {
         Toast.makeText(this, "Api Error", Toast.LENGTH_SHORT).show();
     }
-
+*/
 
     public void initialize() {
         infoCompany = findViewById(R.id.info);
         details = (TableLayout) findViewById(R.id.details);
-
-    } */
+        companyText = (TextView) findViewById(R.id.tv_name);
+        priceText = (TextView) findViewById((R.id.tv_price));
+        exchangeText = (TextView) findViewById((R.id.tv_exchange));
+    }
 }

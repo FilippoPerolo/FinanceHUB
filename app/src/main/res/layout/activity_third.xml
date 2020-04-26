@@ -36,19 +36,41 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="10dp"
                 android:text="@string/name_of_the_company"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
-            
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:text="@string/price"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_exchange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:text="@string/exchange"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
             <TableLayout
                 android:id="@+id/details"
-                android:padding="10dp"
-                android:layout_marginBottom="30dp"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:padding="10dp" />
 
         </LinearLayout>
     </ScrollView>

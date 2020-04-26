@@ -92,6 +92,7 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
         mAdapter = new ListAdapter(symbolsList, new ListAdapter.OnItemClickListener() {
             public void onItemClick(Symbol symbolsList) {
                 Intent intent = new Intent(getApplicationContext(), ThirdActivity.class);
+                intent.putExtra("extra",symbolsList.getSymbol());
                 startActivity(intent);
             }
         });
