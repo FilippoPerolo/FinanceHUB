@@ -1,11 +1,8 @@
 package com.example.meetfinance;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -80,7 +77,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
             }
         });
-//        setAnimation(holder.itemView);
 
     }
 
@@ -91,11 +87,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         return symbolsList.size();
     }
 
-    private void setAnimation(View animation) {
-        Animation animation1 = AnimationUtils.loadAnimation((Context) listener, android.R.anim.fade_in);
-        animation1.setDuration(1500);
-        animation.startAnimation(animation1);
-    }
+
 
     public interface OnItemClickListener {
         void onItemClick(Symbol symbolsList);

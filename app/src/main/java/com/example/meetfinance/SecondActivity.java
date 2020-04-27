@@ -94,7 +94,8 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
         mAdapter = new ListAdapter(symbolsList, new ListAdapter.OnItemClickListener() {
             public void onItemClick(Symbol symbolsList) {
                 Intent intent = new Intent(getApplicationContext(), ThirdActivity.class);
-                intent.putExtra("extra",symbolsList.getSymbol());
+                intent.putExtra("txtHeader", symbolsList.getSymbol());
+                intent.putExtra("txtFooter", symbolsList.getExchange());
                 YoYo.with(Techniques.RubberBand)
                         .duration(2000)
                         .repeat(1)

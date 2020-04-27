@@ -26,6 +26,12 @@ public class ThirdActivity extends AppCompatActivity {
     private TextView priceText;
     private TextView exchangeText;
 
+    TextView tv_name;
+    TextView tv_exchange;
+
+    String nameComp;
+    String exchangeComp;
+
     private static final String BASE_URL = "https://financialmodelingprep.com/";
     private RecyclerView recyclerView;
     private ListAdapter mAdapter;
@@ -41,6 +47,18 @@ public class ThirdActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
+        tv_name = findViewById(R.id.tv_name);
+        tv_exchange = findViewById(R.id.tv_exchange);
+
+
+        Bundle bundle = getIntent().getExtras();
+
+        nameComp = bundle.getString("txtHeader");
+        exchangeComp = bundle.getString("txtFooter");
+
+        tv_name.setText(nameComp);
+        tv_exchange.setText(exchangeComp);
+
         Intent intent = getIntent();
         Symbol symbolsList = (Symbol) intent.getSerializableExtra("ONE_COMPANY");
 
