@@ -13,7 +13,11 @@
     <string name="other">Other</string>
     <string name="help">Help</string>
     <string name="back">Back</string>
-    <string name="details_company">Details company</string>
     <string name="price">price</string>
     <string name="exchange">exchange</string>
+    <string name="company_s_details">Company\'s details</string>
+    <string name="NAME">NAME</string>
+    <string name="PRICE">PRICE</string>
+    <string name="EXCHANGE">EXCHANGE</string>
+    <string name="SYMBOL">SYMBOL</string>
 </resources>

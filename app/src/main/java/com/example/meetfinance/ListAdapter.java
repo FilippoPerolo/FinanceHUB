@@ -23,6 +23,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         // each data item is just a string in this case
         TextView txtHeader;
         TextView txtFooter;
+        TextView txt3;
+        TextView txt4;
         View layout;
 
 
@@ -31,6 +33,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             layout = v;
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
+            txt3 = (TextView) v.findViewById(R.id.tv_price);
+            txt4 = (TextView) v.findViewById(R.id.tv_exchange);
         }
     }
 

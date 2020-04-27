@@ -11,16 +11,19 @@
         android:id="@+id/info"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:padding="10dp">
+        android:background="@color/colorPrimaryDark"
+        android:padding="50dp">
 
         <TextView
             android:id="@+id/details_company"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="@string/details_company"
-            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:text="@string/company_s_details"
+            android:textColor="@color/white"
+            android:textSize="35sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -40,30 +43,44 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="10dp"
-                android:text="@string/name_of_the_company"
+                android:layout_marginBottom="30dp"
+                android:text="@string/NAME"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_symbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="30dp"
+                android:text="@string/SYMBOL"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="10dp"
-                android:text="@string/price"
+                android:layout_marginBottom="30dp"
+                android:text="@string/PRICE"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_exchange"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="10dp"
-                android:text="@string/exchange"
+                android:layout_marginBottom="30dp"
+                android:text="@string/EXCHANGE"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <TableLayout
                 android:id="@+id/details"
