@@ -45,11 +45,12 @@ public class HistoryActivity extends AppCompatActivity {
                 .create();
 
         List<Details> detailsList = getDataFromCache();
-        if (detailsList != null) {
+     /*   if (detailsList != null) {
             showList(detailsList);
         } else {
             makeApiCall();
-        }
+        } */
+     makeApiCall();
     }
 
     private List<Details> getDataFromCache() {
@@ -92,7 +93,7 @@ public class HistoryActivity extends AppCompatActivity {
                     List<Details> detailsList = response.body().getDetailsList();
                     Toast.makeText(getApplicationContext(), "Api Success", Toast.LENGTH_SHORT).show();
                     saveList(detailsList);
-                    showList(detailsList);
+                   // showList(detailsList);
                 } else {
                     showError();
                 }
