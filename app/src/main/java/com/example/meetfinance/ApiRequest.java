@@ -2,6 +2,7 @@ package com.example.meetfinance;
 
 import android.content.Context;
 import android.util.Log;
+
 import com.android.volley.NetworkError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -16,24 +17,24 @@ import org.json.JSONObject;
 public class ApiRequest {
     private RequestQueue queue;
     private Context context;
+    private String ticker;
 
     public ApiRequest(RequestQueue queue, Context context) {
         this.context = context;
         this.queue = queue;
     }
 
-    public void checkCompanyName(final String symbol, final ApiRequest.CheckCompanyCallback callback) {
-        String url = "https://financialmodelingprep.com/api/v3/stock/real-time-price/" + symbol;
+    public void checkCompanyName(final String name, final ApiRequest.CheckCompanyCallback callback) {
+        String url = "https://financialmodelingprep.com/api/v3/company/profile/" + name;
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Log.d("APP", response.toString());
                 try {
-                    JSONObject json = response.getJSONObject(symbol.toUpperCase());
+                    JSONObject json = response.getJSONObject(name.toUpperCase());
                     String name = json.getString("symbol");
-                    double price = json.getDouble("price");
-                    callback.onSuccess(symbol, price);
+                    callback.onSuccess(name);
                 } catch (JSONException e) {
                     Log.d("APP", "EXCEPTION = " + e);
                     e.printStackTrace();
@@ -56,7 +57,7 @@ public class ApiRequest {
     }
 
     public interface CheckCompanyCallback {
-        void onSuccess(String symbol, double price);
+        void onSuccess(String symbol);
 
         void notExist(String message);
 

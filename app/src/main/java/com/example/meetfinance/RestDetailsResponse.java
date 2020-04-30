@@ -1,18 +1,11 @@
 package com.example.meetfinance;
 
-import android.os.Bundle;
+import java.util.List;
 
 public class RestDetailsResponse {
-    private String symbol2;
-    private Double price;
-    private Bundle symbolSent;
+   private List<Details> detailsList;
 
-
-    public String getSymbol2() {
-        return symbol2;
-    }
-
-    public Double getPrice() {
-        return price;
+    public List<Details> getDetailsList() {
+        return detailsList;
     }
 }

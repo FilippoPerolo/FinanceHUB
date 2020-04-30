@@ -22,9 +22,9 @@ public class FirstActivity extends AppCompatActivity {
     Button searchButton;
     Button listButton;
     ProgressBar searchBar;
-    ProgressBar listBar;
     ListView recentResearch;
-    private RequestQueue queue;
+    RequestQueue queue;
+    String ticker;
     private ApiRequest request;
     private Handler handler;
 
@@ -33,18 +33,16 @@ public class FirstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        // on initialise la RequestQueue
+        // on initialise nos éléments
+
         queue = MySingleton.getInstance(this).getRequestQueue();
         request = new ApiRequest(queue, this);
         handler = new Handler();
-
         etCompany = (EditText) findViewById(R.id.et_company);
         searchButton = (Button) findViewById(R.id.buttonSend);
         searchBar = (ProgressBar) findViewById(R.id.progress_bar);
         recentResearch = (ListView) findViewById(R.id.recentResearch);
-
         listButton = (Button) findViewById(R.id.buttonSend2);
-        listBar = (ProgressBar) findViewById(R.id.progress_bar2);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +54,12 @@ public class FirstActivity extends AppCompatActivity {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            request.checkCompanyName(research, new ApiRequest.CheckCompanyCallback() {
+                            Intent intent = new Intent(FirstActivity.this , FourthActivity.class); // getApplicationContext()
+                            // on crée un Bundle pour ajouter des informations qu'on va passer dans l'autre activité
+                            ticker = etCompany.getText().toString().toUpperCase();
+                            intent.putExtra("ticker", ticker);
+                            startActivity(intent);
+                           /* request.checkCompanyName(research, new ApiRequest.CheckCompanyCallback() {
                                 @Override
                                 public void onSuccess(String symbol, double price) {
                                     searchBar.setVisibility(View.INVISIBLE); // on rend la barre de progression invisible
@@ -64,10 +67,7 @@ public class FirstActivity extends AppCompatActivity {
                                     // on crée un Intent pour passer dans une autre activité
                                     Intent intent = new Intent(getApplicationContext(), HistoryActivity.class);
                                     // on crée un Bundle pour ajouter des informations qu'on va passer dans l'autre activité
-                                    Bundle extras = new Bundle();
-                                    extras.putString("SYMBOL", symbol);
-                                    extras.putDouble("PRICE", price);
-                                    intent.putExtras(extras);
+                                    intent.putExtra("ticker", ticker.getBytes());
                                     startActivity(intent);
 
                                 }
@@ -84,7 +84,7 @@ public class FirstActivity extends AppCompatActivity {
 
                                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                                 }
-                            });
+                            }); */
 
                         }
                     }, 2000);
@@ -98,7 +98,7 @@ public class FirstActivity extends AppCompatActivity {
         listButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                listBar.setVisibility(View.VISIBLE);
+                searchBar.setVisibility(View.VISIBLE);
                 YoYo.with(Techniques.Tada)
                         .duration(1000)
                         .repeat(1)
@@ -106,7 +106,7 @@ public class FirstActivity extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        listBar.setVisibility(View.INVISIBLE); // on rend la barre de progression invisible
+                        searchBar.setVisibility(View.INVISIBLE); // on rend la barre de progression invisible
 
                         // on crée un Intent pour passer dans une autre activité
                         Intent intent = new Intent(getApplicationContext(), SecondActivity.class);

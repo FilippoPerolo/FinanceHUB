@@ -20,4 +20,8 @@
     <string name="PRICE">PRICE</string>
     <string name="EXCHANGE">EXCHANGE</string>
     <string name="SYMBOL">SYMBOL</string>
+    <string name="companyName">company Name</string>
+    <string name="industry">industry</string>
+    <string name="companyDescription">companyDesc</string>
+    <string name="sector">sector</string>
 </resources>

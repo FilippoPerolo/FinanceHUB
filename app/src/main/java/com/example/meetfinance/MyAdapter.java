@@ -1,57 +1,72 @@
 package com.example.meetfinance;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+/*
+public class MyAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
+    private List<Symbol> symbolsList;
 
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.List;
-
-public class MyAdapter extends RecyclerView.Adapter {
-    private Context context;
-    private List<Symbol> symbols;
-
-    public MyAdapter(Context context, List<Symbol> symbols) {
-        this.context = context;
-        this.symbols = symbols;
+    public MyAdapter(List<Details> detailsList) {
+        this.detailsList = detailsList;
     }
 
-    @NonNull
-    @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(context).inflate(R.layout.match_row, parent, false);
-        return new MyViewHolder(itemView);
-    }
 
-    @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
-        Symbol oneSymbol = symbols.get(position);
-    }
+    class ViewHolder extends RecyclerView.ViewHolder {
+        // each data item is just a string in this case
+        TextView txtHeader;
+        TextView txtFooter;
+        TextView txt3;
+        TextView txt4;
+        View layout;
 
-    @Override
-    public int getItemCount() {
-        return symbols.size();
-    }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-
-        View iconView;
-        ImageView imageViewSymbol;
-        TextView Title;
-        CardView cardView;
-
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-            iconView = itemView.findViewById(R.id.iconView);
-            imageViewSymbol = (ImageView) itemView.findViewById(R.id.imageViewSymbol);
-            Title = (TextView) itemView.findViewById(R.id.Title);
-            cardView = (CardView) itemView.findViewById(R.id.cardview);
+        public ViewHolder(View v) {
+            super(v);
+            layout = v;
+            txtHeader = (TextView) v.findViewById(R.id.firstLine);
+            txtFooter = (TextView) v.findViewById(R.id.secondLine);
+            txt3 = (TextView) v.findViewById(R.id.tv_price);
+            txt4 = (TextView) v.findViewById(R.id.tv_exchange);
         }
     }
-}
+
+
+    public void add(int position, Symbol item) {
+        symbolsList.add(position, item);
+        notifyItemInserted(position);
+    }
+
+    public void remove(int position) {
+        symbolsList.remove(position);
+        notifyItemRemoved(position);
+    }
+
+
+    // Create new views (invoked by the layout manager)
+    @Override
+    public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // create a new view
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_layout, parent, false);
+        //   LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        //   View v = inflater.inflate(R.layout.row_layout, parent, false);
+        // set the view's size, margins, paddings and layout parameters
+        return new ViewHolder(itemView);
+    }
+
+
+    // Replace the contents of a view (invoked by the layout manager)
+    @Override
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+        // - get element from your dataset at this position
+        // - replace the contents of the view with that element
+        holder.txtHeader.setText(symbolsList.get(position).getName());
+        holder.txtFooter.setText(symbolsList.get(position).getSymbol());
+        holder.itemView.setBackgroundResource(R.drawable.details_drawable);
+    }
+
+    // Return the size of your dataset (invoked by the layout manager)
+    @Override
+    public int getItemCount() {
+        return symbolsList.size();
+    }
+
+} */
+

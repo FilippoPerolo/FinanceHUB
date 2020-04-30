@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/black"
     android:orientation="vertical"
     tools:context=".FirstActivity">
 
     <ImageView
         android:layout_width="fill_parent"
-        android:layout_height="250dp"
+        android:layout_height="225dp"
         android:layout_marginTop="40dp"
         android:src="@drawable/image1" />
 
@@ -21,6 +21,7 @@
         android:layout_marginTop="15dp"
         android:orientation="horizontal">
 
+        <!-- espace texte pour la recherche -->
         <EditText
             android:id="@+id/et_company"
             android:layout_width="230dp"
@@ -29,21 +30,14 @@
             android:hint="@string/name_of_the_company"
             android:singleLine="true"
             android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColorHint="#C8C5C5" />
 
+        <!-- barre de progression chargement -->
         <ProgressBar
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:visibility="invisible" />
-
-        <ProgressBar
-            android:id="@+id/progress_bar2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginStart="15dp"
             android:visibility="invisible" />
 
     </LinearLayout>
@@ -63,6 +57,13 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="25dp"
         android:text="@string/search2" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="165dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/image5" />
 
 
     <ListView
