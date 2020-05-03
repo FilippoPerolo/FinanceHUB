@@ -97,5 +97,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         void onItemClick(Symbol symbolsList);
     }
 
+    public void filterList(List<Symbol> filteredList){
+        symbolsList = filteredList;
+        notifyDataSetChanged();
+    }
+
 }
 

@@ -57,6 +57,7 @@ public class FirstActivity extends AppCompatActivity {
                             Intent intent = new Intent(FirstActivity.this , HistoryActivity.class); // getApplicationContext()
                             // on crée un Bundle pour ajouter des informations qu'on va passer dans l'autre activité
                             ticker = etCompany.getText().toString().toUpperCase();
+
                             intent.putExtra("ticker", ticker);
                             startActivity(intent);
                            /* request.checkCompanyName(research, new ApiRequest.CheckCompanyCallback() {

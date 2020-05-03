@@ -3,11 +3,11 @@ package com.example.meetfinance;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
@@ -15,6 +15,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -28,16 +29,27 @@ public class HistoryActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private Gson gson;
     private RecyclerView recyclerView;
+    private MyAdapter myAdapter;
     private ListAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private DrawerLayout mDrawerLayout;
+    private TextView textViewResult, tv_companyName, tv_industry, tv_description, tv_sector;
+    private String companyName, industry, companyDesc, sector;
+    private Details details;
+
+    // ajout
+    String ticker;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
-        String tickerSent = getIntent().getStringExtra("ticker");
+        String ticker = getIntent().getStringExtra("ticker");
+        Bundle bundle = getIntent().getExtras();
+
 
         sharedPreferences = getSharedPreferences("Esiea_3A", Context.MODE_PRIVATE);
         gson = new GsonBuilder()
@@ -45,12 +57,30 @@ public class HistoryActivity extends AppCompatActivity {
                 .create();
 
         List<Details> detailsList = getDataFromCache();
-     /*   if (detailsList != null) {
+     /*  if (detailsList != null) {
             showList(detailsList);
         } else {
             makeApiCall();
         } */
-     makeApiCall();
+        makeApiCall();
+
+
+        textViewResult = findViewById(R.id.text_view_result);
+        tv_companyName = findViewById(R.id.tv_companyName);
+        tv_industry = findViewById(R.id.tv_industry);
+        tv_description = findViewById(R.id.tv_description);
+        tv_sector = findViewById((R.id.tv_sector));
+
+
+        companyName = bundle.getString("txtHeader");
+        companyDesc = bundle.getString("txtFooter");
+        sector = bundle.getString("txt4");
+        industry = bundle.getString("txt3");
+
+        tv_companyName.setText(companyName);
+        tv_industry.setText(industry);
+        tv_description.setText(companyDesc);
+        tv_sector.setText(sector);
     }
 
     private List<Details> getDataFromCache() {
@@ -67,12 +97,12 @@ public class HistoryActivity extends AppCompatActivity {
 
     private void showList(List<Details> detailsList) {
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
+     //   recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+     //   recyclerView.setHasFixedSize(true);
 
-        // use a linear layout manager
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
+        List<Details> input = new ArrayList<>();
+        myAdapter = new MyAdapter(input);
+        recyclerView.setAdapter(myAdapter);
     }
 
     private void makeApiCall() {
@@ -82,10 +112,10 @@ public class HistoryActivity extends AppCompatActivity {
                 .build();
 
         final DetailsAPI detailsAPI = retrofit.create(DetailsAPI.class);
-        String tickerSent = getIntent().getStringExtra("ticker");
+        String ticker = getIntent().getStringExtra("ticker");
 
 
-        Call<RestDetailsResponse> call = detailsAPI.getDetailsResponse(tickerSent);
+        Call<RestDetailsResponse> call = detailsAPI.getDetailsResponse(ticker);
         call.enqueue(new Callback<RestDetailsResponse>() {
             @Override
             public void onResponse(Call<RestDetailsResponse> call, Response<RestDetailsResponse> response) {
@@ -93,7 +123,7 @@ public class HistoryActivity extends AppCompatActivity {
                     List<Details> detailsList = response.body().getDetailsList();
                     Toast.makeText(getApplicationContext(), "Api Success", Toast.LENGTH_SHORT).show();
                     saveList(detailsList);
-                   // showList(detailsList);
+                //     showList(detailsList);
                 } else {
                     showError();
                 }

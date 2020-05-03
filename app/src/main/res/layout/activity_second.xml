@@ -8,37 +8,37 @@
     android:fitsSystemWindows="true"
     tools:context=".SecondActivity">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
 
         <!-- A RecyclerView with some commonly used attributes -->
 
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="378dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="1dp"
+            android:hint="@string/Search"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="3dp"
-            android:text="@string/Companies_List">
+            android:layout_width="410dp"
+            android:layout_height="572dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText">
 
         </androidx.recyclerview.widget.RecyclerView>
 
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="12dp"
-            android:elevation="2dp"
-            android:src="@android:drawable/ic_menu_add" />
-
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
@@ -46,8 +46,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/background"
-        app:itemTextColor="@color/white"
         app:headerLayout="@layout/header_drawer"
+        app:itemTextColor="@color/white"
         app:menu="@menu/menu_drawer">
 
     </com.google.android.material.navigation.NavigationView>

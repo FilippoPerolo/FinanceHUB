@@ -24,4 +24,5 @@
     <string name="industry">industry</string>
     <string name="companyDescription">companyDesc</string>
     <string name="sector">sector</string>
+    <string name="Search">Search</string>
 </resources>

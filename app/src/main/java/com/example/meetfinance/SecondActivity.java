@@ -4,7 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,6 +25,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -40,6 +44,7 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
     private DrawerLayout mDrawerLayout;
     private NavigationView navigationView;
     private RequestQueue queue;
+    List<Symbol> symbolsList;
 
 
     @Override
@@ -61,13 +66,32 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
                 .setLenient()
                 .create();
 
-        List<Symbol> symbolsList = getDataFromCache();
+        symbolsList = getDataFromCache();
         if (symbolsList != null) {
             showList(symbolsList);
         } else {
             makeApiCall();
         }
+
+        EditText editText = findViewById(R.id.editText);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
     }
+
 
     private List<Symbol> getDataFromCache() {
         String jsonSymbols = sharedPreferences.getString(Constants.KEY_SYMBOLS_LIST, null);
@@ -183,6 +207,18 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
                 return true;
         }
         return true;
+    }
+
+    private void filter(String text){
+        ArrayList<Symbol> filteredList = new ArrayList<>();
+
+        for (Symbol symbol : symbolsList){
+            if(symbol.getSymbol().toUpperCase().contains(text.toUpperCase())){
+                filteredList.add(symbol);
+            }
+        }
+
+        mAdapter.filterList(filteredList);
     }
 }
 

@@ -1,5 +1,6 @@
 package com.example.meetfinance;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -13,6 +14,7 @@ import com.android.volley.RequestQueue;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.List;
 import java.util.Objects;
 
 import retrofit2.Call;
@@ -41,21 +43,23 @@ public class FourthActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fourth);
 
+        makeApiCall();
+
         initialize();
+
+        Bundle bundle = getIntent().getExtras();
 
         ticker = Objects.requireNonNull(getIntent().getExtras()).getString("ticker");
         textViewResult.setText(ticker);
 
-        makeApiCall();
 
-        textViewResult = findViewById(R.id.text_view_result);
+      /*  textViewResult = findViewById(R.id.text_view_result);
         tv_companyName = findViewById(R.id.tv_companyName);
         tv_industry = findViewById(R.id.tv_industry);
         tv_description = findViewById(R.id.tv_description);
-        tv_sector = findViewById((R.id.tv_sector));
+        tv_sector = findViewById((R.id.tv_sector)); */
 
 
-        Bundle bundle = getIntent().getExtras();
 
         companyName = bundle.getString("txtHeader");
         industry = bundle.getString("txtFooter");
@@ -73,6 +77,18 @@ public class FourthActivity extends AppCompatActivity {
         gson = new GsonBuilder()
                 .setLenient()
                 .create(); */
+
+        sharedPreferences = getSharedPreferences("Esiea_3A", Context.MODE_PRIVATE);
+        gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
+   /*     Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://financialmodelingprep.com/api/v3/company/profile/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class); */
 
 
 
@@ -115,33 +131,30 @@ public class FourthActivity extends AppCompatActivity {
 
 
     private void makeApiCall() {
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
-        CompanyApi companyApi = retrofit.create(CompanyApi.class);
+        final DetailsAPI detailsAPI = retrofit.create(DetailsAPI.class);
+        String ticker = getIntent().getStringExtra("ticker");
 
-        Call<RestCompanyResponse> call = companyApi.getProfile(ticker);
-        call.enqueue(new Callback<RestCompanyResponse>() {
+        Call<RestDetailsResponse> call = detailsAPI.getDetailsResponse(ticker);
+        call.enqueue(new Callback<RestDetailsResponse>() {
             @Override
-            public void onResponse(Call<RestCompanyResponse> call, Response<RestCompanyResponse> response) {
+            public void onResponse(Call<RestDetailsResponse> call, Response<RestDetailsResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    String profile = response.body().getProfile();
+                    List<Details> detailsList = response.body().getDetailsList();
                     Toast.makeText(getApplicationContext(), "Api Success", Toast.LENGTH_SHORT).show();
-                    //saveList(symbolsList);
-                    //showList(symbolsList);
+                    saveList(detailsList);
+                    //     showList(detailsList);
                 } else {
                     showError();
                 }
             }
 
             @Override
-            public void onFailure(Call<RestCompanyResponse> call, Throwable t) {
+            public void onFailure(Call<RestDetailsResponse> call, Throwable t) {
                 showError();
             }
         });
@@ -150,6 +163,18 @@ public class FourthActivity extends AppCompatActivity {
 
     private void showError() {
         Toast.makeText(this, "Api Error", Toast.LENGTH_SHORT).show();
+    }
+
+    private void saveList(List<Details> detailsList) {
+        String jsonString = gson.toJson(detailsList);
+
+        sharedPreferences
+                .edit()
+                .putString(Constants.KEY_SYMBOLS_LIST, jsonString)
+                .apply();
+
+        Toast.makeText(getApplicationContext(), "List Saved", Toast.LENGTH_SHORT).show();
+
     }
 
     public void initialize() {
