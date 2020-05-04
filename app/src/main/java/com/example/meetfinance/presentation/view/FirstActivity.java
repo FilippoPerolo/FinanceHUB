@@ -1,4 +1,4 @@
-package com.example.meetfinance;
+package com.example.meetfinance.presentation.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.RequestQueue;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.example.meetfinance.ApiRequest;
+import com.example.meetfinance.CountryAdapter;
+import com.example.meetfinance.CountryItem;
+import com.example.meetfinance.HistoryActivity;
+import com.example.meetfinance.MySingleton;
+import com.example.meetfinance.R;
+import com.example.meetfinance.SecondActivity;
 
 import java.util.ArrayList;
 

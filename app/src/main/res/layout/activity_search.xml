@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#938F8F"
     android:orientation="vertical"
-    tools:context=".FirstActivity">
+    tools:context=".presentation.view.FirstActivity">
 
     <!-- espace texte pour la recherche -->
 

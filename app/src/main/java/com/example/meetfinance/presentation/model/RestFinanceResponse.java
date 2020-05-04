@@ -1,4 +1,4 @@
-package com.example.meetfinance;
+package com.example.meetfinance.presentation.model;
 
 import java.util.List;
 

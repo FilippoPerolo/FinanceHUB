@@ -16,7 +16,7 @@
         <activity android:name=".SecondActivity"
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".HistoryActivity" />
-        <activity android:name=".FirstActivity">
+        <activity android:name=".presentation.view.FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

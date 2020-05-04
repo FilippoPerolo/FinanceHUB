@@ -1,4 +1,4 @@
-package com.example.meetfinance;
+package com.example.meetfinance.presentation.view;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.meetfinance.R;
+import com.example.meetfinance.presentation.model.Symbol;
 
 import java.util.List;
 

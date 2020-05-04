@@ -1,4 +1,6 @@
-package com.example.meetfinance;
+package com.example.meetfinance.data;
+
+import com.example.meetfinance.presentation.model.RestFinanceResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

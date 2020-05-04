@@ -1,4 +1,4 @@
-package com.example.meetfinance;
+package com.example.meetfinance.presentation.model;
 
 public class Symbol {
     private String symbol;

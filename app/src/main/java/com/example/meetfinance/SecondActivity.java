@@ -19,6 +19,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.RequestQueue;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.example.meetfinance.data.SymbolAPI;
+import com.example.meetfinance.presentation.model.RestFinanceResponse;
+import com.example.meetfinance.presentation.model.Symbol;
+import com.example.meetfinance.presentation.view.FirstActivity;
+import com.example.meetfinance.presentation.view.ListAdapter;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -217,6 +222,7 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
                 filteredList.add(symbol);
             }
         }
+
 
         mAdapter.filterList(filteredList);
     }
