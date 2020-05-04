@@ -143,12 +143,12 @@ public class FirstActivity extends AppCompatActivity {
 
     private void initList() {
         mCountryList = new ArrayList<>();
-        mCountryList.add(new CountryItem(R.drawable.francais));
-        mCountryList.add(new CountryItem(R.drawable.allemand));
-        mCountryList.add(new CountryItem(R.drawable.italien));
-        mCountryList.add(new CountryItem(R.drawable.russe));
-        mCountryList.add(new CountryItem(R.drawable.chinois));
-        mCountryList.add(new CountryItem(R.drawable.esapgne));
+        mCountryList.add(new CountryItem(R.drawable.france));
+        mCountryList.add(new CountryItem(R.drawable.allemagne));
+        mCountryList.add(new CountryItem(R.drawable.italie));
+        mCountryList.add(new CountryItem(R.drawable.russie));
+        mCountryList.add(new CountryItem(R.drawable.chinne2));
+        mCountryList.add(new CountryItem(R.drawable.espagne));
     }
 
 }

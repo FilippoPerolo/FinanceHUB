@@ -4,28 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="#938F8F"
     android:orientation="vertical"
     tools:context=".FirstActivity">
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="64dp"
-        android:layout_height="56dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.878"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.441">
-
-    </Spinner>
-
     <!-- espace texte pour la recherche -->
 
-        <!-- barre de progression chargement -->
+    <!-- barre de progression chargement -->
 
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="58dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.437">
+
+    </Spinner>
 
     <ImageView
         android:id="@+id/imageView"

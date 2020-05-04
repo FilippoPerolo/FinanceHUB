@@ -10,20 +10,20 @@
 
     <!-- espace texte pour la recherche -->
 
-        <!-- barre de progression chargement -->
+    <!-- barre de progression chargement -->
 
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="52dp"
-        android:layout_height="26dp"
-        android:background="@color/white"
+        android:layout_width="117dp"
+        android:layout_height="46dp"
+        android:backgroundTint="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.426">
+        app:layout_constraintVertical_bias="0.437">
 
     </Spinner>
 
@@ -37,7 +37,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.199" />
+        app:layout_constraintVertical_bias="0.288" />
 
     <Button
         android:id="@+id/buttonSend"
