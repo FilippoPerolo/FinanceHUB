@@ -22,7 +22,7 @@ import com.example.meetfinance.CountryItem;
 import com.example.meetfinance.HistoryActivity;
 import com.example.meetfinance.MySingleton;
 import com.example.meetfinance.R;
-import com.example.meetfinance.SecondActivity;
+import com.example.meetfinance.presentation.controller.FirstController;
 
 import java.util.ArrayList;
 
@@ -39,10 +39,15 @@ public class FirstActivity extends AppCompatActivity {
     private ApiRequest request;
     private Handler handler;
 
+    private FirstController controller;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        controller = new FirstController();
+        controller.onStart();
 
         initList();
         Spinner spinner = findViewById(R.id.spinner);
