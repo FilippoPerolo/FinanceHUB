@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,15 +17,18 @@ import com.android.volley.RequestQueue;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
+import java.util.ArrayList;
+
 public class FirstActivity extends AppCompatActivity {
 
     EditText etCompany;
     Button searchButton;
     Button listButton;
     ProgressBar searchBar;
-    ListView recentResearch;
     RequestQueue queue;
     String ticker;
+    public ArrayList<CountryItem> mCountryList;
+    private CountryAdapter mAdapter;
     private ApiRequest request;
     private Handler handler;
 
@@ -32,6 +36,22 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        initList();
+        Spinner spinner = findViewById(R.id.spinner);
+        mAdapter = new CountryAdapter(this, mCountryList);
+        spinner.setAdapter(mAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                CountryItem clickedItem = (CountryItem) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         // on initialise nos éléments
 
@@ -41,7 +61,6 @@ public class FirstActivity extends AppCompatActivity {
         etCompany = (EditText) findViewById(R.id.et_company);
         searchButton = (Button) findViewById(R.id.buttonSend);
         searchBar = (ProgressBar) findViewById(R.id.progress_bar);
-        recentResearch = (ListView) findViewById(R.id.recentResearch);
         listButton = (Button) findViewById(R.id.buttonSend2);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +73,7 @@ public class FirstActivity extends AppCompatActivity {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            Intent intent = new Intent(FirstActivity.this , HistoryActivity.class); // getApplicationContext()
+                            Intent intent = new Intent(FirstActivity.this, HistoryActivity.class); // getApplicationContext()
                             // on crée un Bundle pour ajouter des informations qu'on va passer dans l'autre activité
                             ticker = etCompany.getText().toString().toUpperCase();
 
@@ -120,6 +139,16 @@ public class FirstActivity extends AppCompatActivity {
                 }, 2000);
             }
         });
+    }
+
+    private void initList() {
+        mCountryList = new ArrayList<>();
+        mCountryList.add(new CountryItem(R.drawable.francais));
+        mCountryList.add(new CountryItem(R.drawable.allemand));
+        mCountryList.add(new CountryItem(R.drawable.italien));
+        mCountryList.add(new CountryItem(R.drawable.russe));
+        mCountryList.add(new CountryItem(R.drawable.chinois));
+        mCountryList.add(new CountryItem(R.drawable.esapgne));
     }
 
 }

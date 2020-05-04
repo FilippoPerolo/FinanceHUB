@@ -8,24 +8,24 @@
     android:orientation="vertical"
     tools:context=".FirstActivity">
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="64dp"
-        android:layout_height="56dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.878"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.441">
-
-    </Spinner>
-
     <!-- espace texte pour la recherche -->
 
         <!-- barre de progression chargement -->
 
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="52dp"
+        android:layout_height="26dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.426">
+
+    </Spinner>
 
     <ImageView
         android:id="@+id/imageView"
@@ -37,7 +37,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.288" />
+        app:layout_constraintVertical_bias="0.199" />
 
     <Button
         android:id="@+id/buttonSend"
