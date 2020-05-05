@@ -37,15 +37,6 @@ public class SecondController {
     }
 
     public void onStart() {
-      /*  queue = MySingleton.getInstance(this).getRequestQueue();
-
-
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.navigation_view);
-
-        navigationView.setNavigationItemSelectedListener(this); */
-
-
         symbolsList = getDataFromCache();
 
         if (symbolsList != null) {
@@ -53,10 +44,7 @@ public class SecondController {
         } else {
             makeApiCall();
         }
-
-
     }
-
 
     private void makeApiCall() {
         Call<RestFinanceResponse> call = Singletons.getSymbolAPI().getSymbolResponse();
@@ -80,20 +68,6 @@ public class SecondController {
 
     }
 
- /*   public void filter(String text) {
-        ArrayList<Symbol> filteredList = new ArrayList<>();
-
-        for (Symbol symbol : RestFinanceResponse.symbolsList) {
-            if (symbol.getSymbol().toUpperCase().contains(text.toUpperCase())) {
-                filteredList.add(symbol);
-            }
-        }
-
-
-        mAdapter.filterList(filteredList);
-    }*/
-
-
     private void saveList(List<Symbol> symbolsList) {
         String jsonString = gson.toJson(symbolsList);
 
@@ -115,6 +89,7 @@ public class SecondController {
             return gson.fromJson(jsonSymbols, listType);
         }
     }
+
 
     public void initList() {
 

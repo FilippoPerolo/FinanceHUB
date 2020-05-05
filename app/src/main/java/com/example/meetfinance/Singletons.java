@@ -3,7 +3,6 @@ package com.example.meetfinance;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.meetfinance.data.SymbolAPI;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -17,7 +16,6 @@ public class Singletons {
     private static SharedPreferences sharedPreferencesInstance;
 
     // Monsieur Etienne n'a pas de femme de ménage
-    // Et il parle tout seul pendant ses vidéos
     public static Gson getGson() {
         if (gsonInstance == null) {
             gsonInstance = new GsonBuilder()

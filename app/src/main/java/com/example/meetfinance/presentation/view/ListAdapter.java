@@ -74,7 +74,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         holder.txtFooter.setText(symbolsList.get(position).getSymbol());
         holder.itemView.setBackgroundResource(R.drawable.details_drawable);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 listener.onItemClick(symbolsList.get(position));
@@ -87,20 +86,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     }
 
-
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return symbolsList.size();
     }
 
-
-
     public interface OnItemClickListener {
         void onItemClick(Symbol symbolsList);
     }
 
-    public void filterList(List<Symbol> filteredList){
+    public void filterList(List<Symbol> filteredList) {
         symbolsList = filteredList;
         notifyDataSetChanged();
     }

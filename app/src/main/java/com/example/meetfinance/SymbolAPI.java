@@ -1,4 +1,4 @@
-package com.example.meetfinance.data;
+package com.example.meetfinance;
 
 import com.example.meetfinance.presentation.model.RestFinanceResponse;
 

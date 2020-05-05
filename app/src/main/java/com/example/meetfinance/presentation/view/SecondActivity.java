@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.RequestQueue;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.example.meetfinance.MySingleton;
 import com.example.meetfinance.R;
 import com.example.meetfinance.Singletons;
 import com.example.meetfinance.presentation.controller.SecondController;
@@ -35,7 +34,6 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
     private NavigationView navigationView;
     private RequestQueue queue;
     private List<Symbol> symbolsList;
-
     private SecondController controller;
 
 
@@ -43,8 +41,6 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-
-        queue = MySingleton.getInstance(this).getRequestQueue();
 
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -59,6 +55,7 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
         );
         controller.onStart();
 
+        // Monsieur Etienne est trop chaud, il fait du FRENGLISH :)
 
         EditText editText = findViewById(R.id.editText);
         editText.addTextChangedListener(new TextWatcher() {
@@ -83,7 +80,6 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
     public void showList(List<Symbol> symbolsList) {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -91,6 +87,7 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
         // define an adapter
         mAdapter = new ListAdapter(symbolsList, new ListAdapter.OnItemClickListener() {
             public void onItemClick(Symbol symbolsList) {
+                //     controller.onItemClick(symbolsList);
                 Intent intent = new Intent(getApplicationContext(), ThirdActivity.class);
                 intent.putExtra("txtHeader", symbolsList.getName());
                 intent.putExtra("txtFooter", symbolsList.getSymbol());
@@ -152,6 +149,19 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
 
 
         mAdapter.filterList(filteredList);
+    }
+
+    public void toDetails(Symbol symbol) {
+        Intent intent = new Intent(getApplicationContext(), ThirdActivity.class);
+        intent.putExtra("txtHeader", Singletons.getGson().toJson(symbol));
+        intent.putExtra("txtFooter", symbol.getSymbol());
+        intent.putExtra("txt3", symbol.getPrice());
+        intent.putExtra("txt4", symbol.getExchange());
+        YoYo.with(Techniques.RubberBand)
+                .duration(2000)
+                .repeat(1)
+                .playOn(mDrawerLayout);
+        getApplicationContext().startActivity(intent);
     }
 }
 
