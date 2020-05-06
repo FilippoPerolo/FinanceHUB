@@ -9,6 +9,7 @@ import retrofit2.http.Path;
 public interface JsonPlaceHolderApi {
 
     @GET("/{ticker}")
-    Call<List<Profile>> getProfiles(@Path("ticker") String ticker);
     Call<List<Post>> getPosts(@Path("ticker") String ticker);
+    //    Call<List<Profile>> getProfiles(@Path("ticker") String ticker);
+
 }

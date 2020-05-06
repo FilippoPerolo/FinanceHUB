@@ -23,6 +23,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.example.meetfinance.Singletons.getGson;
+
 public class FourthActivity extends AppCompatActivity {
     static final String BASE_URL = "https://financialmodelingprep.com/";
     private RelativeLayout relativeLayout;
@@ -43,7 +45,8 @@ public class FourthActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fourth);
 
-        makeApiCall();
+
+
 
         initialize();
 
@@ -51,6 +54,38 @@ public class FourthActivity extends AppCompatActivity {
 
         ticker = Objects.requireNonNull(getIntent().getExtras()).getString("ticker");
         textViewResult.setText(ticker);
+
+        makeApiCall();
+/*
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://financialmodelingprep.com/api/v3/company/profile/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+
+        Call<List<Post>> call = jsonPlaceHolderApi.getPosts(ticker);
+
+        call.enqueue(new Callback<List<Post>>() {
+            @Override
+            public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
+                List<Post> posts = response.body();
+                assert posts != null;
+                for (Post post : posts){
+                    String content = "companyName: " + post.getCompanyName();
+
+                    textViewResult.append(content);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Post>> call, Throwable t) {
+                textViewResult.setText(t.getMessage());
+            }
+        });
+
+
+
 
 
       /*  textViewResult = findViewById(R.id.text_view_result);
@@ -133,7 +168,7 @@ public class FourthActivity extends AppCompatActivity {
     private void makeApiCall() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(GsonConverterFactory.create(getGson()))
                 .build();
 
         final DetailsAPI detailsAPI = retrofit.create(DetailsAPI.class);

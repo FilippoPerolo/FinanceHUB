@@ -19,6 +19,7 @@ import com.daimajia.androidanimations.library.YoYo;
 import com.example.meetfinance.ApiRequest;
 import com.example.meetfinance.CountryAdapter;
 import com.example.meetfinance.CountryItem;
+import com.example.meetfinance.FourthActivity;
 import com.example.meetfinance.R;
 
 import java.util.ArrayList;
@@ -78,7 +79,7 @@ public class FirstActivity extends AppCompatActivity {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            Intent intent = new Intent(FirstActivity.this, HistoryActivity.class); // getApplicationContext()
+                            Intent intent = new Intent(FirstActivity.this, FourthActivity.class); // getApplicationContext()
                             // on crée un Bundle pour ajouter des informations qu'on va passer dans l'autre activité
                             ticker = etCompany.getText().toString().toUpperCase();
 
