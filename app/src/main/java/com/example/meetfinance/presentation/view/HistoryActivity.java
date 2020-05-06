@@ -1,4 +1,4 @@
-package com.example.meetfinance;
+package com.example.meetfinance.presentation.view;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -8,15 +8,20 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.meetfinance.presentation.view.ListAdapter;
+import com.example.meetfinance.Constants;
+import com.example.meetfinance.Details;
+import com.example.meetfinance.DetailsAPI;
+import com.example.meetfinance.MyAdapter;
+import com.example.meetfinance.R;
+import com.example.meetfinance.RestDetailsResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -31,16 +36,15 @@ public class HistoryActivity extends AppCompatActivity {
     private Gson gson;
     private RecyclerView recyclerView;
     private MyAdapter myAdapter;
-    private ListAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private DrawerLayout mDrawerLayout;
-    private TextView textViewResult, tv_companyName, tv_industry, tv_description, tv_sector;
+    private TextView textViewResult, tv_name, tv_symbol, tv_exchange, tv_price;
     private String companyName, industry, companyDesc, sector;
     private Details details;
 
     // ajout
     String ticker;
-
+    private MyAdapter adapter;
 
 
     @Override
@@ -66,11 +70,11 @@ public class HistoryActivity extends AppCompatActivity {
         makeApiCall();
 
 
-        textViewResult = findViewById(R.id.text_view_result);
-        tv_companyName = findViewById(R.id.tv_companyName);
-        tv_industry = findViewById(R.id.tv_industry);
-        tv_description = findViewById(R.id.tv_description);
-        tv_sector = findViewById((R.id.tv_sector));
+
+        tv_name = findViewById(R.id.tv_name);
+        tv_symbol = findViewById(R.id.tv_symbol);
+        tv_exchange = findViewById(R.id.tv_exchange);
+        tv_price = findViewById(R.id.tv_price);
 
 
         companyName = bundle.getString("txtHeader");
@@ -78,10 +82,10 @@ public class HistoryActivity extends AppCompatActivity {
         sector = bundle.getString("txt4");
         industry = bundle.getString("txt3");
 
-        tv_companyName.setText(companyName);
-        tv_industry.setText(industry);
-        tv_description.setText(companyDesc);
-        tv_sector.setText(sector);
+        tv_name.setText(companyName);
+        tv_exchange.setText(industry);
+        tv_symbol.setText(companyDesc);
+        tv_price.setText(sector);
     }
 
     private List<Details> getDataFromCache() {
@@ -97,13 +101,12 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
     private void showList(List<Details> detailsList) {
+        // use a linear layout manager
+        layoutManager = new LinearLayoutManager(this);
 
-     //   recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-     //   recyclerView.setHasFixedSize(true);
-
-        List<Details> input = new ArrayList<>();
-        myAdapter = new MyAdapter(input);
-        recyclerView.setAdapter(myAdapter);
+        // define an adapter
+        myAdapter = new MyAdapter(detailsList);
+        setAdapter(myAdapter);
     }
 
     private void makeApiCall() {
@@ -124,7 +127,7 @@ public class HistoryActivity extends AppCompatActivity {
                     List<Details> detailsList = response.body().getDetailsList();
                     Toast.makeText(getApplicationContext(), "Api Success", Toast.LENGTH_SHORT).show();
                     saveList(detailsList);
-                //     showList(detailsList);
+                    showList(detailsList);
                 } else {
                     showError();
                 }
@@ -152,6 +155,10 @@ public class HistoryActivity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "List Saved", Toast.LENGTH_SHORT).show();
 
+    }
+
+    public void setAdapter(MyAdapter adapter) {
+        this.adapter = adapter;
     }
 
 }

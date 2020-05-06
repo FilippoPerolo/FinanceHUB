@@ -19,7 +19,6 @@ import com.daimajia.androidanimations.library.YoYo;
 import com.example.meetfinance.ApiRequest;
 import com.example.meetfinance.CountryAdapter;
 import com.example.meetfinance.CountryItem;
-import com.example.meetfinance.HistoryActivity;
 import com.example.meetfinance.R;
 
 import java.util.ArrayList;
