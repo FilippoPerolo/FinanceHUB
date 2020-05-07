@@ -18,6 +18,7 @@ import com.android.volley.RequestQueue;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.example.meetfinance.R;
+import com.example.meetfinance.SettingsActivity;
 import com.example.meetfinance.Singletons;
 import com.example.meetfinance.presentation.controller.SecondController;
 import com.example.meetfinance.presentation.model.Symbol;
@@ -133,6 +134,11 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
             case R.id.quit:
                 Toast.makeText(getApplicationContext(), "Quitter...", Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.settings:
+                Intent intent3 = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(intent3);
+
+
         }
         return true;
     }
