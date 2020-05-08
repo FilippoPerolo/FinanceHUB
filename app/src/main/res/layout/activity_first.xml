@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#938F8F"
+    android:background="#000000"
     android:orientation="vertical"
     tools:context=".presentation.view.FirstActivity">
 
@@ -27,15 +27,12 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="58dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="317dp"
-        app:layout_constraintBottom_toBottomOf="@+id/viewpager"
+        android:layout_width="81dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437">
+        app:layout_constraintTop_toTopOf="@+id/viewpager">
 
     </Spinner>
 
@@ -45,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
         android:text="@string/search"
         app:layout_constraintBottom_toTopOf="@+id/buttonSend2"
         app:layout_constraintEnd_toStartOf="@+id/progress_bar"
@@ -57,11 +55,14 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="40dp"
         android:text="@string/search2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
+        app:layout_constraintTop_toBottomOf="@+id/progress_bar"
+        app:layout_constraintVertical_bias="0.454" />
 
     <EditText
         android:id="@+id/et_company"
@@ -85,6 +86,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="50dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

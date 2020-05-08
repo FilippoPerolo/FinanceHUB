@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.android.volley.RequestQueue;
 import com.daimajia.androidanimations.library.Techniques;
@@ -37,12 +38,22 @@ public class FirstActivity extends AppCompatActivity {
     private ApiRequest request;
     private Handler handler;
 
+    private String[] imageUrls = new String[]{
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSWswnkjNX0sC05mNKzDzs9Z3i4w4_ud4eCsIl4xX7ecWMJdsX&s",
+            "https://www.investawise.com/wp-content/uploads/2019/12/What-are-financial-markets-and-why-are-they-important-1.jpg",
+            "https://www.procurement-academy.com/wp/wp-content/uploads/2018/05/Business-Finance-1.jpg",
+            "https://wadv-prod-1f0120db-46d2-4038-90ab-ac2558260610.storage.googleapis.com/s3fs-public/2017-11/law-and-finance-1600x600_0.jpg",
+            "https://www.airliquide.com/sites/airliquide.com/files/styles/retina_cover_page/public/investors-figures-banner-mobile.jpg?itok=kkftnImY"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_first);
 
+        ViewPager viewPager = findViewById(R.id.viewpager);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(this, imageUrls);
+        viewPager.setAdapter(adapter);
 
         initList();
         Spinner spinner = findViewById(R.id.spinner);
@@ -59,6 +70,7 @@ public class FirstActivity extends AppCompatActivity {
 
             }
         });
+
 
         // on initialise nos éléments
 

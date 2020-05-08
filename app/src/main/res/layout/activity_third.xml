@@ -24,7 +24,7 @@
             android:text="@string/company_s_details"
             android:textColor="@color/white"
             android:textSize="35sp"
-            android:textStyle="bold" />
+            android:textStyle="italic" />
 
     </RelativeLayout>
 
@@ -39,53 +39,94 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:text="@string/NAME"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="25dp"
                 android:text="@string/NAME"
-                android:textColor="@color/black"
+                android:textColor="#011FC6"
                 android:textSize="25sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/symbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:text="@string/SYMBOL"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_symbol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="25dp"
                 android:text="@string/SYMBOL"
-                android:textColor="@color/black"
+                android:textColor="#AA9900"
                 android:textSize="25sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:text="@string/PRICE"
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="25dp"
                 android:text="@string/PRICE"
-                android:textColor="@color/black"
+                android:textColor="#AC0D01"
                 android:textSize="25sp"
                 android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/exchange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:text="@string/EXCHANGE"
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_exchange"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="50dp"
                 android:text="@string/EXCHANGE"
-                android:textColor="@color/black"
+                android:textColor="#00BF08"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imagePicasso"
                 android:layout_width="match_parent"
-                android:layout_height="176dp" />
+                android:layout_height="182dp"
+                android:layout_marginTop="15dp" />
 
         </LinearLayout>
     </ScrollView>

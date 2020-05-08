@@ -68,7 +68,9 @@ public class ThirdActivity extends AppCompatActivity {
                 .duration(2000)
                 .repeat(1)
                 .playOn(imageView);
-        Picasso.with(this).load(url).into(imageView);
+        Picasso.get()
+                .load(url).
+                into(imageView);
 
         sharedPreferences = getSharedPreferences("Esiea_3A", Context.MODE_PRIVATE);
         gson = new GsonBuilder()
