@@ -25,16 +25,7 @@
         app:layout_constraintVertical_bias="0.0"
         tools:context=".presentation.view.FirstActivity" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="81dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/viewpager">
 
-    </Spinner>
 
     <Button
         android:id="@+id/buttonSend"

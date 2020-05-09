@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,17 +52,6 @@ public class FirstActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(this, imageUrls);
         viewPager.setAdapter(adapter);
 
-        Spinner spinner = findViewById(R.id.spinner);
-        // ajout images au spinner
-        initList();
-
-        // adapter pour spinner
-        mAdapter = new CountryAdapter(this, mCountryList);
-        spinner.setAdapter(mAdapter);
-
-        // gestion clicks sur spinner
-        spinnerClick(spinner);
-
         // initialise variables
         initialize();
 
@@ -73,16 +60,6 @@ public class FirstActivity extends AppCompatActivity {
 
         // gestion bouton list
         listButtonClick();
-    }
-
-    private void initList() {
-        mCountryList = new ArrayList<>();
-        mCountryList.add(new CountryItem(R.drawable.france));
-        mCountryList.add(new CountryItem(R.drawable.allemagne));
-        mCountryList.add(new CountryItem(R.drawable.italie));
-        mCountryList.add(new CountryItem(R.drawable.russie));
-        mCountryList.add(new CountryItem(R.drawable.chinne2));
-        mCountryList.add(new CountryItem(R.drawable.espagne));
     }
 
     private void initialize() {
@@ -143,19 +120,6 @@ public class FirstActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 }, 2000);
-            }
-        });
-    }
-
-    private void spinnerClick(Spinner spinner) {
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                CountryItem clickedItem = (CountryItem) parent.getItemAtPosition(position);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
             }
         });
     }
