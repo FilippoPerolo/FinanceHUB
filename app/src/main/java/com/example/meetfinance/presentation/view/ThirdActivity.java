@@ -18,43 +18,39 @@ import com.google.gson.GsonBuilder;
 import com.squareup.picasso.Picasso;
 
 public class ThirdActivity extends AppCompatActivity {
+    // Variables
     private RelativeLayout infoCompany;
     private TableLayout details;
     private TextView companyText;
     private TextView priceText;
     private TextView exchangeText;
-
-    ImageView imageView;
-
-    TextView tv_name;
-    TextView tv_symbol;
-    TextView tv_exchange;
-    TextView tv_price;
-
-    String symbolComp;
-    String nameComp;
-    String exchangeComp;
-    Double priceComp;
-
+    private ImageView imageView;
+    private TextView tv_name;
+    private TextView tv_symbol;
+    private TextView tv_exchange;
+    private TextView tv_price;
+    private String symbolComp;
+    private String nameComp;
+    private String exchangeComp;
+    private Double priceComp;
     private SharedPreferences sharedPreferences;
     private Gson gson;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
 
-        initialize();
+        initialize(); // initialise les éléments
 
-        getBundle();
+        getBundle(); // chope les informations de l'activité précédente
 
         settingText();
 
         imageView = (ImageView) findViewById(R.id.imagePicasso);
 
         String url = "https://financialmodelingprep.com/images-New-jpg/" + symbolComp + ".jpg";
-        animate(url);
+        animate(url); // insère une image diff pour chaque élément de la liste avec Picasso
 
         sharedPreferences = getSharedPreferences("Esiea_3A", Context.MODE_PRIVATE);
         gson = new GsonBuilder()

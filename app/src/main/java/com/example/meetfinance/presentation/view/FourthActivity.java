@@ -52,9 +52,6 @@ public class FourthActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fourth);
 
-
-
-
         initialize();
 
         Bundle bundle = getIntent().getExtras();
@@ -63,45 +60,6 @@ public class FourthActivity extends AppCompatActivity {
         textViewResult.setText(ticker);
 
         makeApiCall();
-/*
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://financialmodelingprep.com/api/v3/company/profile/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-
-        Call<List<Post>> call = jsonPlaceHolderApi.getPosts(ticker);
-
-        call.enqueue(new Callback<List<Post>>() {
-            @Override
-            public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
-                List<Post> posts = response.body();
-                assert posts != null;
-                for (Post post : posts){
-                    String content = "companyName: " + post.getCompanyName();
-
-                    textViewResult.append(content);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Post>> call, Throwable t) {
-                textViewResult.setText(t.getMessage());
-            }
-        });
-
-
-
-
-
-      /*  textViewResult = findViewById(R.id.text_view_result);
-        tv_companyName = findViewById(R.id.tv_companyName);
-        tv_industry = findViewById(R.id.tv_industry);
-        tv_description = findViewById(R.id.tv_description);
-        tv_sector = findViewById((R.id.tv_sector)); */
-
-
 
         companyName = bundle.getString("txtHeader");
         industry = bundle.getString("txtFooter");
@@ -113,25 +71,10 @@ public class FourthActivity extends AppCompatActivity {
         tv_description.setText(companyDesc);
         tv_sector.setText(sector);
 
-     /*   Intent intent = getIntent();
-
-        sharedPreferences = getSharedPreferences("Esiea_3A", Context.MODE_PRIVATE);
-        gson = new GsonBuilder()
-                .setLenient()
-                .create(); */
-
         sharedPreferences = getSharedPreferences("Esiea_3A", Context.MODE_PRIVATE);
         gson = new GsonBuilder()
                 .setLenient()
                 .create();
-
-   /*     Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://financialmodelingprep.com/api/v3/company/profile/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class); */
-
 
 
         //getProfiles();

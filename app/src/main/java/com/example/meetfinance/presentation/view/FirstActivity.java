@@ -25,18 +25,17 @@ import com.example.meetfinance.R;
 import java.util.ArrayList;
 
 public class FirstActivity extends AppCompatActivity {
-
-    EditText etCompany;
-    Button searchButton;
-    Button listButton;
-    ProgressBar searchBar;
-    RequestQueue queue;
-    String ticker;
+    // Variables
     public ArrayList<CountryItem> mCountryList;
+    private EditText etCompany;
+    private Button searchButton;
+    private Button listButton;
+    private ProgressBar searchBar;
+    private RequestQueue queue;
+    private String ticker;
     private CountryAdapter mAdapter;
     private ApiRequest request;
     private Handler handler;
-
     private String[] imageUrls = new String[]{
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSWswnkjNX0sC05mNKzDzs9Z3i4w4_ud4eCsIl4xX7ecWMJdsX&s",
             "https://www.investawise.com/wp-content/uploads/2019/12/What-are-financial-markets-and-why-are-they-important-1.jpg",
@@ -50,22 +49,29 @@ public class FirstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
 
+        // Viewpager pour faire défiler images avec Picasso
         ViewPager viewPager = findViewById(R.id.viewpager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(this, imageUrls);
         viewPager.setAdapter(adapter);
 
+        Spinner spinner = findViewById(R.id.spinner);
+        // ajout images au spinner
         initList();
 
-        Spinner spinner = findViewById(R.id.spinner);
+        // adapter pour spinner
         mAdapter = new CountryAdapter(this, mCountryList);
         spinner.setAdapter(mAdapter);
 
+        // gestion clicks sur spinner
         spinnerClick(spinner);
 
+        // initialise variables
         initialize();
 
+        // gestion bouton search
         searchButtonClick();
 
+        // gestion bouton list
         listButtonClick();
     }
 
@@ -93,19 +99,19 @@ public class FirstActivity extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String research = etCompany.getText().toString().trim();
-
+                final String research = etCompany.getText().toString().trim(); // gestion du texte tapé dans la research bar
                 if (research.length() > 0) {
-                    searchBar.setVisibility(View.VISIBLE);
+                    searchBar.setVisibility(View.VISIBLE); // on rend visible la barre de chargement
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            searchBar.setVisibility(View.INVISIBLE); // on rend la barre de progression invisible
-                            Intent intent = new Intent(FirstActivity.this, FourthActivity.class); // getApplicationContext()
+                            searchBar.setVisibility(View.INVISIBLE); // on rend invisible la bar
+                            Intent intent = new Intent(FirstActivity.this, FourthActivity.class);
                             // on crée un Bundle pour ajouter des informations qu'on va passer dans l'autre activité
                             ticker = etCompany.getText().toString().toUpperCase();
-
+                            // le ticker est le symbole de l'entreprise
                             intent.putExtra("ticker", ticker);
+                            // on débute une nouvelle activité
                             startActivity(intent);
 
                         }
@@ -119,26 +125,21 @@ public class FirstActivity extends AppCompatActivity {
     }
 
     private void listButtonClick() {
-
         listButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 searchBar.setVisibility(View.VISIBLE);
-                YoYo.with(Techniques.Tada)
+                YoYo.with(Techniques.Tada)  // animation avec Yoyo, le bouton tremble
                         .duration(1000)
                         .repeat(1)
                         .playOn(listButton);
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        searchBar.setVisibility(View.INVISIBLE); // on rend la barre de progression invisible
-
+                        searchBar.setVisibility(View.INVISIBLE); // on rend la barre invisible
                         // on crée un Intent pour passer dans une autre activité
                         Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
                         // on crée un Bundle pour ajouter des informations qu'on va passer dans l'autre activité
-                        //Bundle extras = new Bundle();
-                        //intent.putExtras(extras);
-
                         startActivity(intent);
                     }
                 }, 2000);
@@ -146,7 +147,7 @@ public class FirstActivity extends AppCompatActivity {
         });
     }
 
-    private void spinnerClick(Spinner spinner){
+    private void spinnerClick(Spinner spinner) {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -155,10 +156,8 @@ public class FirstActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
     }
-
 
 }

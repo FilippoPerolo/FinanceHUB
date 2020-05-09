@@ -22,6 +22,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SecondController {
+    // Variables
     public static List<Symbol> symbolsList;
     private RequestQueue queue;
     private SharedPreferences sharedPreferences;
@@ -46,7 +47,7 @@ public class SecondController {
         }
     }
 
-    private void makeApiCall() {
+    private void makeApiCall() { // appel à l'API Rest
         Call<RestFinanceResponse> call = Singletons.getSymbolAPI().getSymbolResponse();
         call.enqueue(new Callback<RestFinanceResponse>() {
             @Override
@@ -68,19 +69,16 @@ public class SecondController {
 
     }
 
-    private void saveList(List<Symbol> symbolsList) {
+    private void saveList(List<Symbol> symbolsList) { // sauvegarde la liste des éléments
         String jsonString = gson.toJson(symbolsList);
-
         sharedPreferences
                 .edit()
                 .putString(Constants.KEY_SYMBOLS_LIST, jsonString)
                 .apply();
-
     }
 
-    private List<Symbol> getDataFromCache() {
+    private List<Symbol> getDataFromCache() { // sauvegarde les données en cache
         String jsonSymbols = sharedPreferences.getString(Constants.KEY_SYMBOLS_LIST, null);
-
         if (jsonSymbols == null) {
             return null;
         } else {
@@ -90,8 +88,4 @@ public class SecondController {
         }
     }
 
-
-    public void initList() {
-
-    }
 }

@@ -40,11 +40,11 @@ public class ViewPagerAdapter extends PagerAdapter {
                 .into(imageView);
         container.addView(imageView);
         return imageView;
-
     }
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View) object);
     }
+
 }
