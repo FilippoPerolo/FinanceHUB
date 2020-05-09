@@ -1,4 +1,4 @@
-package com.example.meetfinance;
+package com.example.meetfinance.presentation.model;
 
 public class RestCompanyResponse {
     private String symbolComp;

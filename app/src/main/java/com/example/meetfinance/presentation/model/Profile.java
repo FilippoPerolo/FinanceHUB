@@ -1,12 +1,16 @@
-package com.example.meetfinance;
+package com.example.meetfinance.presentation.model;
 
-public class Company {
+import com.google.gson.annotations.SerializedName;
+
+public class Profile {
     private String companyName;
     private String industry;
     private String description;
     private String sector;
     private double price;
     private String image;
+    @SerializedName("symbol")
+    private String symbol;
 
     public String getCompanyName() {
         return companyName;
@@ -30,5 +34,9 @@ public class Company {
 
     public String getImage() {
         return image;
+    }
+
+    public String getSymbol() {
+        return symbol;
     }
 }

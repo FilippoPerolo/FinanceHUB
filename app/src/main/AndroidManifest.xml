@@ -11,7 +11,7 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FourthActivity" />
+        <activity android:name=".presentation.view.FourthActivity" />
         <activity android:name=".presentation.view.ThirdActivity" />
         <activity
             android:name=".presentation.view.SecondActivity"

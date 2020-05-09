@@ -1,4 +1,4 @@
-package com.example.meetfinance;
+package com.example.meetfinance.presentation.view;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,6 +11,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
+import com.example.meetfinance.ApiRequest;
+import com.example.meetfinance.Constants;
+import com.example.meetfinance.JsonPlaceHolderApi;
+import com.example.meetfinance.R;
+import com.example.meetfinance.data.DetailsAPI;
+import com.example.meetfinance.presentation.model.Details;
+import com.example.meetfinance.presentation.model.RestDetailsResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

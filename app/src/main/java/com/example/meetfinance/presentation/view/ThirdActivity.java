@@ -18,7 +18,6 @@ import com.google.gson.GsonBuilder;
 import com.squareup.picasso.Picasso;
 
 public class ThirdActivity extends AppCompatActivity {
-
     private RelativeLayout infoCompany;
     private TableLayout details;
     private TextView companyText;
@@ -48,29 +47,14 @@ public class ThirdActivity extends AppCompatActivity {
 
         initialize();
 
-        Bundle bundle = getIntent().getExtras();
+        getBundle();
 
-        nameComp = bundle.getString("txtHeader");
-        symbolComp = bundle.getString("txtFooter");
-        exchangeComp = bundle.getString("txt4");
-        priceComp = bundle.getDouble("txt3");
-
-        tv_name.setText(nameComp);
-        tv_symbol.setText(symbolComp);
-        tv_exchange.setText(exchangeComp);
-        tv_price.setText("" + priceComp);
+        settingText();
 
         imageView = (ImageView) findViewById(R.id.imagePicasso);
 
-        String url = "https://financialmodelingprep.com/images-New-jpg/"+symbolComp+".jpg";
-
-        YoYo.with(Techniques.Wave)
-                .duration(2000)
-                .repeat(1)
-                .playOn(imageView);
-        Picasso.get()
-                .load(url).
-                into(imageView);
+        String url = "https://financialmodelingprep.com/images-New-jpg/" + symbolComp + ".jpg";
+        animate(url);
 
         sharedPreferences = getSharedPreferences("Esiea_3A", Context.MODE_PRIVATE);
         gson = new GsonBuilder()
@@ -78,10 +62,35 @@ public class ThirdActivity extends AppCompatActivity {
                 .create();
     }
 
-    public void initialize() {
+    private void initialize() {
         tv_name = findViewById(R.id.tv_name);
         tv_symbol = findViewById(R.id.tv_symbol);
         tv_exchange = findViewById(R.id.tv_exchange);
         tv_price = findViewById(R.id.tv_price);
+    }
+
+    private void animate(String url) {
+        YoYo.with(Techniques.Wave)
+                .duration(2000)
+                .repeat(1)
+                .playOn(imageView);
+        Picasso.get()
+                .load(url).
+                into(imageView);
+    }
+
+    private void getBundle() {
+        Bundle bundle = getIntent().getExtras();
+        nameComp = bundle.getString("txtHeader");
+        symbolComp = bundle.getString("txtFooter");
+        exchangeComp = bundle.getString("txt4");
+        priceComp = bundle.getDouble("txt3");
+    }
+
+    private void settingText() {
+        tv_name.setText(nameComp);
+        tv_symbol.setText(symbolComp);
+        tv_exchange.setText(exchangeComp);
+        tv_price.setText("" + priceComp);
     }
 }

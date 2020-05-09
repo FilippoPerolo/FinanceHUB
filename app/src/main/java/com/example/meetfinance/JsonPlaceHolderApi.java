@@ -1,5 +1,7 @@
 package com.example.meetfinance;
 
+import com.example.meetfinance.presentation.model.Post;
+
 import java.util.List;
 
 import retrofit2.Call;

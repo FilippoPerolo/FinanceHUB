@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meetfinance.Constants;
-import com.example.meetfinance.Details;
-import com.example.meetfinance.DetailsAPI;
+import com.example.meetfinance.presentation.model.Details;
+import com.example.meetfinance.data.DetailsAPI;
 import com.example.meetfinance.MyAdapter;
 import com.example.meetfinance.R;
-import com.example.meetfinance.RestDetailsResponse;
+import com.example.meetfinance.presentation.model.RestDetailsResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;

@@ -1,6 +1,6 @@
-package com.example.meetfinance;
+package com.example.meetfinance.presentation.model;
 
-public class Details {
+public class Company {
     private String companyName;
     private String industry;
     private String description;
