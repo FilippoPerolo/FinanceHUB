@@ -1,4 +1,4 @@
-package com.example.meetfinance;
+package com.example.meetfinance.data;
 
 public class Constants {
     public static final String BASE_URL = "https://financialmodelingprep.com/";

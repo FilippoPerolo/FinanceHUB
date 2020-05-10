@@ -1,4 +1,4 @@
-package com.example.meetfinance;
+package com.example.meetfinance.presentation.view;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.meetfinance.presentation.model.CountryItem;
+import com.example.meetfinance.R;
 
 import java.util.ArrayList;
 

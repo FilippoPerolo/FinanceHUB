@@ -1,4 +1,4 @@
-package com.example.meetfinance;
+package com.example.meetfinance.presentation.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,8 @@ import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.meetfinance.presentation.view.FirstActivity;
+import com.example.meetfinance.presentation.model.CountryItem;
+import com.example.meetfinance.R;
 
 import java.util.ArrayList;
 
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         mCountryList.add(new CountryItem(R.drawable.allemagne));
         mCountryList.add(new CountryItem(R.drawable.italie));
         mCountryList.add(new CountryItem(R.drawable.russie));
+        mCountryList.add(new CountryItem(R.drawable.angleterre));
         mCountryList.add(new CountryItem(R.drawable.chinne2));
         mCountryList.add(new CountryItem(R.drawable.espagne));
     }

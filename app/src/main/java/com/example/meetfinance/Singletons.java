@@ -3,6 +3,7 @@ package com.example.meetfinance;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.meetfinance.data.Constants;
 import com.example.meetfinance.data.SymbolAPI;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

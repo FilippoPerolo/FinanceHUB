@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.android.volley.RequestQueue;
-import com.example.meetfinance.Constants;
+import com.example.meetfinance.data.Constants;
 import com.example.meetfinance.Singletons;
 import com.example.meetfinance.presentation.model.RestFinanceResponse;
 import com.example.meetfinance.presentation.model.Symbol;

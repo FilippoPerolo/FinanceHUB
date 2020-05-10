@@ -11,7 +11,7 @@
         android:layout_width="45dp"
         android:backgroundTint="@color/white"
         android:layout_height="43dp"
-        android:src="@drawable/francais"
+        android:src="@drawable/france"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.751"

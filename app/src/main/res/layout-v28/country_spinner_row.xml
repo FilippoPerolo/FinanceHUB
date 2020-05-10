@@ -10,7 +10,7 @@
         android:id="@+id/iv_france"
         android:layout_width="45dp"
         android:layout_height="43dp"
-        android:src="@drawable/francais"
+        android:src="@drawable/france"
         android:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

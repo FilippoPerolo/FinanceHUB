@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -15,9 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.android.volley.RequestQueue;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.example.meetfinance.ApiRequest;
-import com.example.meetfinance.CountryAdapter;
-import com.example.meetfinance.CountryItem;
+import com.example.meetfinance.presentation.model.CountryItem;
 import com.example.meetfinance.R;
 
 import java.util.ArrayList;
@@ -32,7 +29,7 @@ public class FirstActivity extends AppCompatActivity {
     private RequestQueue queue;
     private String ticker;
     private CountryAdapter mAdapter;
-    private ApiRequest request;
+   // private ApiRequest request;
     private Handler handler;
     private String[] imageUrls = new String[]{
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSWswnkjNX0sC05mNKzDzs9Z3i4w4_ud4eCsIl4xX7ecWMJdsX&s",
@@ -56,7 +53,7 @@ public class FirstActivity extends AppCompatActivity {
         initialize();
 
         // gestion bouton search
-        searchButtonClick();
+      //  searchButtonClick();
 
         // gestion bouton list
         listButtonClick();
@@ -64,7 +61,7 @@ public class FirstActivity extends AppCompatActivity {
 
     private void initialize() {
         // on initialise nos éléments
-        request = new ApiRequest(queue, this);
+       // request = new ApiRequest(queue, this);
         handler = new Handler();
         etCompany = (EditText) findViewById(R.id.et_company);
         searchButton = (Button) findViewById(R.id.buttonSend);
@@ -72,7 +69,7 @@ public class FirstActivity extends AppCompatActivity {
         listButton = (Button) findViewById(R.id.buttonSend2);
     }
 
-    private void searchButtonClick() {
+ /*  private void searchButtonClick() {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +96,7 @@ public class FirstActivity extends AppCompatActivity {
                 }
             }
         });
-    }
+    } */
 
     private void listButtonClick() {
         listButton.setOnClickListener(new View.OnClickListener() {
