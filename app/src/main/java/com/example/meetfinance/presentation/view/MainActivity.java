@@ -18,16 +18,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CountryAdapter mAdapter;
     private ArrayList<CountryItem> mCountryList;
-    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = findViewById(R.id.customButton);
+        Button button = findViewById(R.id.customButton);
         Switch switchEnabled = findViewById(R.id.switch_bull);
 
         Spinner spinner = findViewById(R.id.spinner);
@@ -35,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         initList();
 
         // adapter pour spinner
-        mAdapter = new CountryAdapter(this, mCountryList);
+        CountryAdapter mAdapter = new CountryAdapter(this, mCountryList);
         spinner.setAdapter(mAdapter);
 
         // gestion clicks sur spinner
@@ -62,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                CountryItem clickedItem = (CountryItem) parent.getItemAtPosition(position);
             }
 
             @Override

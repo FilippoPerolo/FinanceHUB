@@ -2,14 +2,10 @@ package com.example.meetfinance.presentation.controller;
 
 import android.content.SharedPreferences;
 
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import com.android.volley.RequestQueue;
-import com.example.meetfinance.data.Constants;
 import com.example.meetfinance.Singletons;
+import com.example.meetfinance.data.Constants;
 import com.example.meetfinance.presentation.model.RestFinanceResponse;
 import com.example.meetfinance.presentation.model.Symbol;
-import com.example.meetfinance.presentation.view.ListAdapter;
 import com.example.meetfinance.presentation.view.SecondActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -24,12 +20,9 @@ import retrofit2.Response;
 public class SecondController {
     // Variables
     public static List<Symbol> symbolsList;
-    private RequestQueue queue;
     private SharedPreferences sharedPreferences;
     private Gson gson;
     private SecondActivity view;
-    private DrawerLayout mDrawerLayout;
-    private ListAdapter mAdapter;
 
     public SecondController(SecondActivity secondActivity, Gson gson, SharedPreferences sharedPreferences) {
         this.view = secondActivity;

@@ -26,20 +26,6 @@
         tools:context=".presentation.view.FirstActivity" />
 
 
-
-    <Button
-        android:id="@+id/buttonSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
-        android:text="@string/search"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSend2"
-        app:layout_constraintEnd_toStartOf="@+id/progress_bar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewpager" />
-
     <Button
         android:id="@+id/buttonSend2"
         android:layout_width="wrap_content"
@@ -53,23 +39,7 @@
         app:layout_constraintHorizontal_bias="0.403"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progress_bar"
-        app:layout_constraintVertical_bias="0.454" />
-
-    <EditText
-        android:id="@+id/et_company"
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:autofillHints="@string/name_of_the_company"
-        android:hint="@string/name_of_the_company"
-        android:inputType="text"
-        android:singleLine="true"
-        android:textColor="@color/white"
-        android:textColorHint="#C8C5C5"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSend"
-        app:layout_constraintEnd_toStartOf="@+id/progress_bar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewpager" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -77,12 +47,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="64dp"
         android:layout_marginBottom="50dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewpager" />
+        app:layout_constraintTop_toBottomOf="@+id/viewpager"
+        app:layout_constraintVertical_bias="0.436" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

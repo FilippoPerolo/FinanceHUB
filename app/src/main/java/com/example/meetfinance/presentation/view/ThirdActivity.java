@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,11 +17,6 @@ import com.squareup.picasso.Picasso;
 
 public class ThirdActivity extends AppCompatActivity {
     // Variables
-    private RelativeLayout infoCompany;
-    private TableLayout details;
-    private TextView companyText;
-    private TextView priceText;
-    private TextView exchangeText;
     private ImageView imageView;
     private TextView tv_name;
     private TextView tv_symbol;
@@ -33,8 +26,6 @@ public class ThirdActivity extends AppCompatActivity {
     private String nameComp;
     private String exchangeComp;
     private Double priceComp;
-    private SharedPreferences sharedPreferences;
-    private Gson gson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +38,13 @@ public class ThirdActivity extends AppCompatActivity {
 
         settingText();
 
-        imageView = (ImageView) findViewById(R.id.imagePicasso);
+        imageView = findViewById(R.id.imagePicasso);
 
         String url = "https://financialmodelingprep.com/images-New-jpg/" + symbolComp + ".jpg";
         animate(url); // insère une image diff pour chaque élément de la liste avec Picasso
 
-        sharedPreferences = getSharedPreferences("Esiea_3A", Context.MODE_PRIVATE);
-        gson = new GsonBuilder()
+        SharedPreferences sharedPreferences = getSharedPreferences("Esiea_3A", Context.MODE_PRIVATE);
+        Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
     }

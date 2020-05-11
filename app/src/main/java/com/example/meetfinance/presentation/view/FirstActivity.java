@@ -11,24 +11,13 @@ import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.android.volley.RequestQueue;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.example.meetfinance.presentation.model.CountryItem;
 import com.example.meetfinance.R;
 
-import java.util.ArrayList;
-
 public class FirstActivity extends AppCompatActivity {
-    // Variables
-    public ArrayList<CountryItem> mCountryList;
-    private EditText etCompany;
-    private Button searchButton;
     private Button listButton;
     private ProgressBar searchBar;
-    private RequestQueue queue;
-    private String ticker;
-    private CountryAdapter mAdapter;
    // private ApiRequest request;
     private Handler handler;
     private String[] imageUrls = new String[]{
@@ -53,7 +42,7 @@ public class FirstActivity extends AppCompatActivity {
         initialize();
 
         // gestion bouton search
-      //  searchButtonClick();
+        //searchButtonClick();
 
         // gestion bouton list
         listButtonClick();
@@ -63,40 +52,11 @@ public class FirstActivity extends AppCompatActivity {
         // on initialise nos éléments
        // request = new ApiRequest(queue, this);
         handler = new Handler();
-        etCompany = (EditText) findViewById(R.id.et_company);
-        searchButton = (Button) findViewById(R.id.buttonSend);
-        searchBar = (ProgressBar) findViewById(R.id.progress_bar);
-        listButton = (Button) findViewById(R.id.buttonSend2);
+        EditText etCompany = findViewById(R.id.et_company);
+        Button searchButton = findViewById(R.id.buttonSend);
+        searchBar = findViewById(R.id.progress_bar);
+        listButton = findViewById(R.id.buttonSend2);
     }
-
- /*  private void searchButtonClick() {
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String research = etCompany.getText().toString().trim(); // gestion du texte tapé dans la research bar
-                if (research.length() > 0) {
-                    searchBar.setVisibility(View.VISIBLE); // on rend visible la barre de chargement
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            searchBar.setVisibility(View.INVISIBLE); // on rend invisible la bar
-                            Intent intent = new Intent(FirstActivity.this, FourthActivity.class);
-                            // on crée un Bundle pour ajouter des informations qu'on va passer dans l'autre activité
-                            ticker = etCompany.getText().toString().toUpperCase();
-                            // le ticker est le symbole de l'entreprise
-                            intent.putExtra("ticker", ticker);
-                            // on débute une nouvelle activité
-                            startActivity(intent);
-
-                        }
-                    }, 2000);
-
-                } else {
-                    Toast.makeText(getApplicationContext(), "You must type a company name !", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    } */
 
     private void listButtonClick() {
         listButton.setOnClickListener(new View.OnClickListener() {

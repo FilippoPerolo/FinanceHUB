@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class CountryAdapter extends ArrayAdapter<CountryItem> {
 
-    public CountryAdapter(Context context, ArrayList<CountryItem> countryList) {
+    CountryAdapter(Context context, ArrayList<CountryItem> countryList) {
         super(context, 0, countryList);
     }
 

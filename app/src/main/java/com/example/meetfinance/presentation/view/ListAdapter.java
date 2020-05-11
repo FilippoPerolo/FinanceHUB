@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meetfinance.R;
@@ -14,40 +15,31 @@ import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<Symbol> symbolsList;
-    public OnItemClickListener listener;
+    private OnItemClickListener listener;
 
-    public ListAdapter(List<Symbol> symbolsList, OnItemClickListener listener) {
+    ListAdapter(List<Symbol> symbolsList, OnItemClickListener listener) {
         this.symbolsList = symbolsList;
         this.listener = listener;
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtHeader;
         TextView txtFooter;
         TextView txt3;
         TextView txt4;
         View layout;
 
-        public ViewHolder(View v) {
+        ViewHolder(View v) {
             super(v);
             layout = v;
-            txtHeader = (TextView) v.findViewById(R.id.firstLine);
-            txtFooter = (TextView) v.findViewById(R.id.secondLine);
-            txt3 = (TextView) v.findViewById(R.id.tv_price);
-            txt4 = (TextView) v.findViewById(R.id.tv_exchange);
+            txtHeader = v.findViewById(R.id.firstLine);
+            txtFooter = v.findViewById(R.id.secondLine);
+            txt3 = v.findViewById(R.id.tv_price);
+            txt4 = v.findViewById(R.id.tv_exchange);
         }
     }
 
-    public void add(int position, Symbol item) {
-        symbolsList.add(position, item);
-        notifyItemInserted(position);
-    }
-
-    public void remove(int position) {
-        symbolsList.remove(position);
-        notifyItemRemoved(position);
-    }
-
+    @NonNull
     @Override
     public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // Nouvelle view
@@ -78,7 +70,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         void onItemClick(Symbol symbolsList);
     }
 
-    public void filterList(List<Symbol> filteredList) {
+    void filterList(List<Symbol> filteredList) {
         symbolsList = filteredList;
         notifyDataSetChanged();
     }

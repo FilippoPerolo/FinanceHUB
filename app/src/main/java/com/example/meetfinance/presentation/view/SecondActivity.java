@@ -14,7 +14,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.RequestQueue;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.example.meetfinance.R;
@@ -27,14 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SecondActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private RecyclerView recyclerView;
     private ListAdapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
     private DrawerLayout mDrawerLayout;
-    private NavigationView navigationView;
-    private RequestQueue queue;
-    private List<Symbol> symbolsList;
-    private SecondController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +35,12 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
         setContentView(R.layout.activity_second);
 
         // on initialise nos éléments
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         // on se sert du controller
-        controller = new SecondController(
+        SecondController controller = new SecondController(
                 this,
                 Singletons.getGson(),
                 Singletons.getSharedPreferences(getApplicationContext())
@@ -78,9 +71,9 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
 
     public void showList(List<Symbol> symbolsList) {
         // on initialise nos éléments
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
         // on définit un adapter
@@ -133,14 +126,13 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
             case R.id.settings:
                 Toast.makeText(getApplicationContext(), "Settings...", Toast.LENGTH_SHORT).show();
                 return true;
-
         }
         return true;
     }
 
     public void filter(String text) { // gestion du filtre de la recyclerview
         ArrayList<Symbol> filteredList = new ArrayList<>();
-        symbolsList = SecondController.symbolsList;
+        List<Symbol> symbolsList = SecondController.symbolsList;
         for (Symbol symbol : symbolsList) {
             if (symbol.getSymbol().toUpperCase().contains(text.toUpperCase())) {
                 filteredList.add(symbol);
@@ -149,17 +141,5 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
         mAdapter.filterList(filteredList);
     }
 
-    public void toDetails(Symbol symbol) {
-        Intent intent = new Intent(getApplicationContext(), ThirdActivity.class);
-        intent.putExtra("txtHeader", Singletons.getGson().toJson(symbol));
-        intent.putExtra("txtFooter", symbol.getSymbol());
-        intent.putExtra("txt3", symbol.getPrice());
-        intent.putExtra("txt4", symbol.getExchange());
-        YoYo.with(Techniques.RubberBand)
-                .duration(2000)
-                .repeat(1)
-                .playOn(mDrawerLayout);
-        getApplicationContext().startActivity(intent);
-    }
 }
 
