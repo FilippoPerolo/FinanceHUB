@@ -4,6 +4,8 @@ FinanceHUB est une application de finance déstinée à l'utilisation mobile pou
 
 L'application a été réalisée pendant les mois de Mars et Avril 2020.
 
+![alt text](https://github.com/FilippoEsiea/FinanceHUB/blob/master/logo.PNG)
+
 
 ### Détails techniques
 
@@ -66,11 +68,11 @@ Un spinner pour afficher les langues disponibles
 Ensuite on accède à un deuxième écran avec des images qui défilent
 
 ![alt_text](https://github.com/FilippoEsiea/FinanceHUB/blob/master/%C3%A9cran2a.PNG)
-![alt_text](https://github.com/FilippoEsiea/FinanceHUB/blob/master/%C3%A9cran2b.PNG).
+![alt_text](https://github.com/FilippoEsiea/FinanceHUB/blob/master/2%C3%A9cran.PNG)
 
-Lorsqu'on appuie sur le bouton, celui-ci tremble et affiche une barre de chargement
+Lorsqu'on appuie sur le dollar, celui-ci tremble et affiche une barre de chargement
 
-![alt_text](https://github.com/FilippoEsiea/FinanceHUB/blob/master/%C3%A9cran2c.PNG).
+![alt_text](https://github.com/FilippoEsiea/FinanceHUB/blob/master/2%C3%A9cranb.PNG)
 
 On arrive ensuite à la recyclerview
 
