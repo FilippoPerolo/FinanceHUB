@@ -90,9 +90,9 @@ Lorsqu'on appuie sur un élément, on en voit le détail avec une image qui appa
 
 On peut en observer le détail avec nom, symbole, prix, bourse d'echange et logo de l'entreprise
 
-![alt_text](https://github.com/FilippoEsiea/FinanceHUB/blob/master/firebase.PNG)
-![alt_text](https://github.com/FilippoEsiea/FinanceHUB/blob/master/notificationFirebase.PNG)
+![alt_text](https://github.com/FilippoEsiea/FinanceHUB/blob/master/%C3%A9cran3e.PNG)
 
 On a enfin les notifications Messaging Firebase
 
-![alt_text](https://github.com/FilippoEsiea/FinanceHUB/blob/master/%C3%A9cran3e.PNG)
+![alt_text](https://github.com/FilippoEsiea/FinanceHUB/blob/master/firebase.PNG)
+![alt_text](https://github.com/FilippoEsiea/FinanceHUB/blob/master/notificationFirebase.PNG)
