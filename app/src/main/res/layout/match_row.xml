@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardview"
     android:layout_width="match_parent"
     android:layout_height="90dp"
@@ -19,17 +20,17 @@
             android:id="@+id/imageViewSymbol"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_toRightOf="@+id/iconView" />
+            android:layout_toRightOf="@+id/iconView"
+            tools:ignore="UnknownIdInLayout" />
 
         <TextView
             android:id="@+id/Title"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginBottom="5dp"
-            android:layout_toRightOf="@id/imageViewSymbol"
-            android:text="Company_Name" />
-
+            android:layout_toEndOf="@id/imageViewSymbol"
+            android:text="@string/company_name" />
 
     </RelativeLayout>
 

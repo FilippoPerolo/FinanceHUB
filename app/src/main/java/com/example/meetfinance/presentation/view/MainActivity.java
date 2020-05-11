@@ -79,11 +79,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void switcherManag(Switch switchEnabled, final Button button){
+    private void switcherManag(Switch switchEnabled, final Button button) {
         switchEnabled.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
+                if (isChecked) {
                     button.setEnabled(true);
                 } else {
                     button.setEnabled(false);
@@ -91,6 +91,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    
-    
+
+
 }

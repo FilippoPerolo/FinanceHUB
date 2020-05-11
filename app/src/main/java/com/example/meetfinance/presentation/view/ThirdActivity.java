@@ -1,7 +1,5 @@
 package com.example.meetfinance.presentation.view;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,8 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.example.meetfinance.R;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.squareup.picasso.Picasso;
 
 public class ThirdActivity extends AppCompatActivity {
@@ -43,10 +39,6 @@ public class ThirdActivity extends AppCompatActivity {
         String url = "https://financialmodelingprep.com/images-New-jpg/" + symbolComp + ".jpg";
         animate(url); // insère une image diff pour chaque élément de la liste avec Picasso
 
-        SharedPreferences sharedPreferences = getSharedPreferences("Esiea_3A", Context.MODE_PRIVATE);
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
     }
 
     private void initialize() {

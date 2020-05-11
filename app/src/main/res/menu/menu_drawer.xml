@@ -2,39 +2,51 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
+
     <group
         android:id="@+id/firstGroup"
         android:checkableBehavior="single">
+
         <item
             android:id="@+id/home"
             android:checked="false"
             android:icon="@drawable/ic_home"
             android:title="@string/home" />
+
         <item
             android:id="@+id/back"
             android:checked="false"
             android:icon="@drawable/ic_back"
             android:title="@string/back" />
+
         <item
             android:id="@+id/settings"
             android:checked="false"
             android:icon="@drawable/ic_settings"
             android:title="@string/settings" />
+
     </group>
+
     <group
         android:id="@+id/secondGroup"
         android:checkableBehavior="single">
+
         <menu>
+
             <item
                 android:id="@+id/help"
                 android:checked="false"
                 android:icon="@drawable/ic_help"
                 android:title="@string/help" />
+
             <item
                 android:id="@+id/quit"
                 android:checked="false"
                 android:icon="@drawable/ic_exit"
                 android:title="@string/quit" />
+
         </menu>
+
     </group>
+
 </menu>

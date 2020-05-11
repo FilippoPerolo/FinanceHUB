@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardview"
     android:layout_width="match_parent"
     android:layout_height="90dp"
-    android:layout_marginLeft="3dp"
+    android:layout_marginStart="3dp"
     android:layout_marginBottom="4dp"
     android:background="@color/background"
     android:padding="5dp"
@@ -16,8 +17,8 @@
         android:id="@+id/main_content"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:gravity="center_vertical">
-
+        android:gravity="center_vertical"
+        tools:ignore="UselessParent">
 
         <View
             android:id="@+id/iconView"
@@ -40,7 +41,6 @@
             android:layout_marginBottom="13dp"
             android:contentDescription="@string/todo"
             android:src="@drawable/image_icon" />
-
 
         <TextView
             android:id="@+id/secondLine"
@@ -66,6 +66,6 @@
             android:text="@string/example_application"
             android:textSize="16sp" />
 
-
     </RelativeLayout>
+
 </LinearLayout>

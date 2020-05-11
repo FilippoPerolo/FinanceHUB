@@ -13,8 +13,6 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <!-- A RecyclerView with some commonly used attributes -->
-
         <EditText
             android:id="@+id/editText"
             android:layout_width="378dp"
@@ -52,6 +50,5 @@
         app:menu="@menu/menu_drawer">
 
     </com.google.android.material.navigation.NavigationView>
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

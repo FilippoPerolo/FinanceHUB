@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +17,7 @@ import com.example.meetfinance.R;
 public class FirstActivity extends AppCompatActivity {
     private Button listButton;
     private ProgressBar searchBar;
-   // private ApiRequest request;
+    // private ApiRequest request;
     private Handler handler;
     private String[] imageUrls = new String[]{
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSWswnkjNX0sC05mNKzDzs9Z3i4w4_ud4eCsIl4xX7ecWMJdsX&s",
@@ -50,10 +49,8 @@ public class FirstActivity extends AppCompatActivity {
 
     private void initialize() {
         // on initialise nos éléments
-       // request = new ApiRequest(queue, this);
+        // request = new ApiRequest(queue, this);
         handler = new Handler();
-        EditText etCompany = findViewById(R.id.et_company);
-        Button searchButton = findViewById(R.id.buttonSend);
         searchBar = findViewById(R.id.progress_bar);
         listButton = findViewById(R.id.buttonSend2);
     }

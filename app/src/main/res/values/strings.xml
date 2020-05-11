@@ -54,4 +54,5 @@
     <string name="login_failed">"Login failed"</string>
     <string name="BULL">BULL</string>
     <string name="FInanceHUB">FinanceHUB</string>
+    <string name="company_name">Company_Name</string>
 </resources>

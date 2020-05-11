@@ -17,7 +17,6 @@ public class Singletons {
     private static SymbolAPI symbolAPIInstance;
     private static SharedPreferences sharedPreferencesInstance;
 
-    // Monsieur Etienne n'a pas de femme de ménage
     public static Gson getGson() {
         if (gsonInstance == null) {
             gsonInstance = new GsonBuilder()
